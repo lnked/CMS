@@ -1,0 +1,97 @@
+{% spaceless %}
+
+<form method="POST" action="" class="cart">
+    <a name="checkout"></a>
+
+    <input type="hidden" name="_backuri" value="{{ _backuri }}">
+    <input type="hidden" name="_action" value="checkout">
+
+    {% if _csrf_token and _csrf_param %}
+    <input type="hidden" name="{{ _csrf_param }}" value="{{ _csrf_token }}">
+    {% endif %}
+
+    <div class="cart__empty{% if _session.cart.count == 0 %} is-active{% endif %} j-cart-is-empty">В вашей корзине пока ничего нет. Выберите блюда из <a href="/menu/delivery" title="Перейти в меню доставки">меню доставки</a></div>
+
+    <div class="cart__items" id="cart-items">
+    {%- if items -%}
+        {%- for product in items -%}
+        <div class="cart__item j-product" data-product="{{ product.id }}">
+            <div class="cart__item__image">
+                <img src="{% if product.photo %}{{ product.photo }}{% else %}/images/no-photo.png{% endif %}" class="cart__item__image__src" width="100%" height="100%" alt="">
+            </div>
+
+            <div class="cart__item__group">
+                <div class="cart__item__group__name">{{ product.name }}</div>
+                <div class="cart__item__group__description">{{ product.description }}</div>
+            </div>
+
+            <div class="cart__item__cost">
+                <span class="cart__item__cost__price">{{ money(product.price) }}</span>&nbsp;<span class="ruble">p</span>
+            </div>
+
+            <div class="cart__item__count">
+                {% include 'components/quantity.twig' with { product: product, items: _session.cart.items } only %}
+            </div>
+
+            <div class="cart__item__total">
+                {% set total_price = product.price * _session.cart.items[product.id].count %}
+                <span class="cart__item__total__price j-product-amount" data-price="{{ product.price }}">{{ money(total_price) }}</span>&nbsp;<span class="ruble">p</span>
+            </div>
+
+            <div class="cart__item__remove">
+                <button type="button" class="cart-remove j-cart-remove" data-product="{{ product.id }}">
+                    <svg class="cart-remove__ico" role="img">
+                        <use xlink:href="#close"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        {%- endfor -%}
+    {%- endif -%}
+    </div>
+
+    <div class="cart__item">
+        <button type="button" class="add-desire j-cart-add" data-product="-1">
+            <span class="add-desire__icon"></span>
+            <span class="add-desire__title">желание гостя</span>
+        </button>
+    </div>
+
+    <footer class="cart__footer">
+        <div class="cart__footer__first">
+            <a href="/cart/clean" class="cart__footer__clear">Очистить корзину</a>
+        </div>
+
+        <div class="cart__footer__total">
+            <span class="cart__footer__total__label">итого:</span>
+            <span class="cart__footer__total__price">
+                <span class="cart__footer__total__price__amount j-cart-amount">{{ money(_session.cart.amount) }}</span>&nbsp;<span class="ruble">p</span>
+            </span>
+        </div>
+
+        <div class="cart__footer__button">
+            <button type="submit" class="button j-update-disabled"{% if _session.cart.amount < 1000 %} disabled{% endif %}>продолжить</button>
+        </div>
+    </footer>
+
+    <div class="cart__error j-update-passed{% if _session.cart.amount >= 1000 %} is-passed{% endif %}">Минимальная сумма заказа 1000 руб</div>
+</form>
+
+{% if steps %}
+<nav class="steps">
+    <ol class="steps__list">
+        {% for step in steps %}
+        {% if step.hide is empty %}
+            <li class="steps__item{% if current >= loop.index or step.passed %} is-passed{% endif %}">
+                {% if current >= loop.index or step.passed %}
+                    <a href="/{{ module_root }}/{{ step.slug }}" class="steps__item__name">{{ step.name }}</a>
+                {% else %}
+                    <span class="steps__item__name">{{ step.name }}</span>
+                {% endif %}
+            </li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,150 @@
+.thumbnails {
+    list-style: none;
+    zoom: 1;
+    margin: 0;
+}
+
+.thumbnails:before,
+.thumbnails:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.thumbnails:after {
+    clear: both;
+}
+
+.thumbnails>li {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.thumbnail {
+    display: block;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
+    transition: all .2s ease-in-out;
+    padding: 4px;
+}
+
+a.thumbnail:hover {
+    box-shadow: 0 1px 4px rgba(0, 105, 214, .25);
+    border-color: #2e8bcc;
+}
+
+.thumbnail>img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thumbnails>li.tile {
+    display: block;
+    cursor: pointer;
+    float: left;
+    width: 130px;
+    min-height: 64px;
+    text-align: left;
+    background-color: #2e8bcc;
+    font-size: .8em;
+    line-height: 150%;
+    padding: 10px 15px;
+    border: 1px solid #2e6cc8;
+}
+
+.thumbnails>li.tile .caption {
+    color: #555;
+    font-size: 1.6em;
+    margin: 0 0 5px;
+}
+
+.thumbnails>li.tile h1,
+.thumbnails>li.tile h2,
+.thumbnails>li.tile h3,
+.thumbnails>li.tile h4,
+.thumbnails>li.tile h5,
+.thumbnails>li.tile h6 {
+    color: $c-white;
+    user-select: none;
+}
+
+.thumbnails>li.tile h2 {
+    font-size: 1.75em;
+    margin-top: -20px;
+    margin-left: 0;
+}
+
+.thumbnails>li.tile h3,
+.thumbnails>li.tile h4 {
+    margin-top: -15px;
+}
+
+.thumbnails>li.tile h1.tile-text,
+.thumbnails>li.tile h2.tile-text,
+.thumbnails>li.tile h3.tile-text,
+.thumbnails>li.tile h4.tile-text {
+    margin-top: 43.333333333333px;
+}
+
+.thumbnails>li.tile img {
+    border: 0;
+}
+
+.thumbnails>li.tile.tile-double {
+    width: 260px;
+}
+
+.thumbnails>li.tile.tile-treeple {
+    width: 390px;
+}
+
+.thumbnails>li.tile.tile-light {
+    background-color: #fffae9;
+    border-color: #fff4d5;
+}
+
+.thumbnails>li.tile.tile-blue {
+    background-color: #2e8bcc;
+}
+
+.thumbnails>li.tile.tile-green {
+    background-color: #393;
+}
+
+.thumbnails>li.tile.tile-red {
+    background-color: #e51400;
+}
+
+.thumbnails>li.tile.tile-yellow {
+    background-color: #ffc40d;
+    border-color: #ffb21a;
+}
+
+.thumbnails>li.tile.tile-pink {
+    background-color: #e671b8;
+}
+
+.thumbnails>li.tile.tile-purple {
+    background-color: #7b4f9d;
+}
+
+.thumbnails>li.tile.tile-lime {
+    background-color: #8cbf26;
+}
+
+.thumbnails>li.tile.tile-magenta {
+    background-color: #ff0097;
+}
+
+.thumbnails>li.tile.tile-teal {
+    background-color: #00aba9;
+}
+
+.thumbnails>li.tile.tile-orange {
+    color: $c-white;
+    background-color: #ffb600;
+    border-color: #ffa402;
+}

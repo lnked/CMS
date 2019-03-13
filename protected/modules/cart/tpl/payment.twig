@@ -1,0 +1,58 @@
+{% spaceless %}
+
+<form method="POST" action="" class="cart payment">
+    <a name="payment"></a>
+
+    <input type="hidden" name="_backuri" value="{{ _backuri }}">
+    <input type="hidden" name="_action" value="payment">
+
+    {% if _csrf_token and _csrf_param %}
+    <input type="hidden" name="{{ _csrf_param }}" value="{{ _csrf_token }}">
+    {% endif %}
+
+    <div class="payment__cost">Сумма к оплате: <strong>{{ money(amount) }}</strong> ₽</div>
+
+    <div class="payment__title">Выберите способ оплаты:</div>
+
+    {% if payment %}
+    <div class="payment__columns">
+        {% for value, title in payment %}
+        <div class="payment__columns__item">
+            <label class="ui-radio ui-radio--box">
+                <input type="radio" name="payment" value="{{ value }}" class="ui-radio__input"{% if loop.first %} checked{% endif %}>
+                <span class="ui-radio__visible" role="radio" aria-checked="{{ loop.first }}" tabindex="{{ loop.index0 }}"></span>
+                <span class="ui-radio__box"></span>
+                <span class="ui-radio__label">
+                    <span class="ui-radio__label__middle">{{ title }}</span>
+                </span>
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <footer class="cart__footer cart__footer--flex-start">
+        <button type="submit" class="button">Подтвердить способ оплаты</button>
+    </footer>
+
+    <div class="payment__text">Для оплаты (ввода реквизитов вашей карты) вы будете перенаправлены на платёжный шлюз ПАО СБЕРБАНК. Соединение с платёжным шлюзом и передача информации осуществляется в защищённом режиме с использованием протокола шифрования SSL. В случае если ваш банк поддерживает технологию безопасного проведения интернет-платежей Verified By Visa или MasterCard SecureCode, для проведения платежа также может потребоваться ввод специального пароля. Настоящий сайт поддерживает 256-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введённая информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платёжных систем МИР, Visa Int. и MasterCard Europe Sprl.</div>
+</form>
+
+{% if steps %}
+<nav class="steps">
+    <ol class="steps__list">
+        {% for step in steps %}
+            {% if step.hide is empty %}
+                <li class="steps__item{% if current >= loop.index or step.passed %} is-passed{% endif %}">
+                    {% if current >= loop.index or step.passed %}
+                        <a href="/{{ module_root }}/{{ step.slug }}" class="steps__item__name">{{ step.name }}</a>
+                    {% else %}
+                        <span class="steps__item__name">{{ step.name }}</span>
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+{% endif %}
+{% endspaceless %}

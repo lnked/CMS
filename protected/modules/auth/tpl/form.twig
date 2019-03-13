@@ -1,0 +1,73 @@
+{if isset($smarty.session.user.id )}
+{strip}
+<div class="auth-user">
+	<p><strong>id:</strong> {$smarty.session.user.id}</p>
+	<p><strong>Ф.И.О.:</strong> {$smarty.session.user.name}</p>
+	<p><strong>Город:</strong> {$smarty.session.user.city}</p>
+	<p><strong>Адрес:</strong> {$smarty.session.user.address}</p>
+	<p><strong>E-mail:</strong> {$smarty.session.user.email}</p>
+	<p><strong>Мобильный телефон:</strong> {$smarty.session.user.phone}</p>
+	<p><strong>Дата регистрации:</strong> {$smarty.session.user.created}</p>
+</div>
+{else}
+<form action="" method="POST" class="form authorization">
+	<input type="hidden" name="_backuri" value="{$_backuri}">
+	
+	<div class="popup__upper clearfix">
+		<div class="popup__col popup__col_push">
+			<div class="popup__col__header popup__col__header_auth">Авторизация через аккаунт</div>
+		</div>
+
+		<div class="popup__col">
+			<div class="popup__col__header popup__col__header_auth">Авторизация через социальные сети</div>
+		</div>
+	</div>
+
+	<div class="popup__subber clearfix">
+		<div class="popup__col popup__col_push">
+			<div class="form__row form__row_mb17">
+				<label for="" class="form__label form__label_mb4">E-mail</label>
+				<input name="email" type="text" class="form__input required error" value="">
+				<div class="form__error-text">Вы не проходили регистрацию на сайте. Пожалуйста, зарегистрируйтесь.</div>
+			</div>
+			
+			<div class="form__row form__row_mb25">
+				<label for="" class="form__label form__label_mb4">Пароль</label>
+				<span class="password-field">
+					<input name="password" type="password" id="password" class="form__input error">
+					<a href="#password" onclick="return false" class="password-toggle password-toggle-close" data-no-instant></a>
+				</span>
+
+				<div class="form__error-text">Вы неверно ввели пароль или логин. Проверьте, пожалуйста, правильность ввода данных.</div>
+			</div>
+
+			<div class="form__row form__row_last">
+				<label class="controll clearfix"><input type="checkbox" class="controll__input" value="1"><span class="controll__visible controll__visible_checkbox"></span><span class="controll__text">Запомнить меня</span></label>
+			</div>
+		</div>
+
+		<div class="popup__col">
+			<div class="popup__social popup__social_v2 clearfix">
+				<div class="col col_left">
+					<a href="" class="sbtn sbtn_vk">вконтакте</a>
+				</div>
+
+				<div class="col col_push">
+					<a href="" class="sbtn sbtn_fb">facebook</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup__buttons clearfix">
+		<div class="popup__col popup__col_push">
+			<button class="sbtn sbtn_hover" type="submit">Авторизоваться</button>
+		</div>
+		
+		<div class="popup__col">
+			<a href="" class="sbtn sbtn_link">Забыли пароль?</a>
+		</div>
+	</div>
+</form>
+{/strip}
+{/if}

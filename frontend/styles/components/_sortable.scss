@@ -1,0 +1,20 @@
+
+.sortable {
+    padding: 0;
+    clear: both;
+    margin-bottom: 10px;
+    font-size: 0;
+    text-align: right;
+}
+
+.sortable select {
+    float: right;
+    margin-left: 10px;
+}
+
+.sortable label {
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 33px;
+    float: right;
+}

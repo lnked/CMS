@@ -1,0 +1,19 @@
+{% spaceless %}
+
+{% for item in tree if tree %}
+
+    <li>
+        <a href="{{ item.link }}">{{ item.name }}</a>
+
+        {% if item.tree %}
+        <ul>
+            {% include 'core/sitemap.twig' with {
+                'tree': item.tree
+            } %}
+        </ul>
+        {% endif %}
+    </li>
+
+{% endfor %}
+
+{% endspaceless %}

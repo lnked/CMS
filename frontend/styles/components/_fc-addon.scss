@@ -1,0 +1,56 @@
+.fc-license-message {
+	display: block;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(1px);
+	visibility: hidden;
+	white-space: nowrap;
+	position: absolute;
+}
+
+.fc-center {
+	padding-top: 8px;
+}
+
+.fc-button {
+	&,
+	&:focus {
+		outline: 0;
+	}
+}
+
+.fc-day-header {
+	a, span {
+		padding: 5px 0;
+    	display: block;
+		text-transform: uppercase;
+	}
+
+	a {
+		width: 20px;
+		height: 13px;
+		color: #000;
+    	display: block;
+		margin: 0 auto;
+		line-height: 16px;
+		overflow: hidden;
+		text-decoration: none;
+	}
+}
+
+.fc-event {
+    font-size: 90%;
+    font-weight: 700;
+
+	&,
+	&:hover {
+		color: #000;
+	}
+
+	& .fc-bg {
+		opacity: 0;
+	}
+}

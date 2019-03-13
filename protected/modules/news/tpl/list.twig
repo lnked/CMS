@@ -1,0 +1,62 @@
+{#
+<p>module_root: {{ module_root }}</p>
+{% include '@news/block.twig' %}
+#}
+
+{% if list %}
+<section class="news">
+
+	{% for item in list %}
+		<article class="news-item clearfix" itemscope itemtype="http://schema.org/NewsArticle" data-url="{{ module_root }}/{{ item.system }}">
+			{% if item.photo %}
+			<figure class="news-item__image" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+			{% if item.text == 1 %}<a href="{{ module_root }}/{{ item.system }}" itemprop="url">{% endif %}
+				<img src="{{ item.photo }}" width="200" height="200" class="news-item__image__src" itemprop="image" alt="{{ item.alt }}">
+			{% if item.text == 1 %}</a>{% endif %}
+			</figure>
+			{% endif %}
+
+			<div class="news-item__content{% if item.photo %} news-item__content_photo{% endif %}">
+				<div class="inner">
+					<time class="news-item__date-published" datetime="{{ item.date_seo }}" itemprop="datePublished">{{ item.date }}</time>
+
+					<h3 class="news-item__title">
+						<a href="{{ module_root }}/{{ item.system }}" itemprop="url" class="news-item__link">
+							<span itemprop="name">{{ item.name|raw }}</span>
+						</a>
+					</h3>
+
+					{% if item.author %}
+					<div class="news-item__author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+						<span class="news-item__author__name" itemprop="name">{{ item.author.name }}</span>
+						<span class="news-item__author__job-title" itemprop="jobTitle">{{ item.author.job_title }}</span>
+					</div>
+					{% endif %}
+
+					<div class="news-item__description" itemprop="description">
+						{{ item.anons|raw }}
+					</div>
+				</div>
+			</div>
+		</article>
+	{% endfor %}
+
+	{% if pager %}
+        {% include 'components/pager.twig' with pager %}
+	{% endif %}
+
+</section>
+{% endif %}
+
+{# <h1>{{ _page.name }}</h1> #}
+{#
+<ul>
+	<li><code>loop.index</code>: {{ loop.index }}</li>
+	<li><code>loop.index0</code>: {{ loop.index0 }}</li>
+	<li><code>loop.revindex</code>: {{ loop.revindex }}</li>
+	<li><code>loop.revindex0</code>: {{ loop.revindex0 }}</li>
+	<li><code>loop.first</code>: {{ loop.first }}</li>
+	<li><code>loop.last</code>: {{ loop.last }}</li>
+	<li><code>loop.length</code>: {{ loop.length }}</li>
+</ul>
+#}

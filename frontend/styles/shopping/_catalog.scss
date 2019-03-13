@@ -1,0 +1,147 @@
+.catalog {
+    margin-bottom: 15px;
+
+    &__count {
+        padding: 0 5px;
+
+        &__overlay {
+            display: flex;
+            padding-right: 5px;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid $catalog-border;
+        }
+    }
+
+    &__infinity {
+        font-size: 1.8rem;
+    }
+
+    &__balance {
+        border: 0;
+        outline: 0;
+        height: 26px;
+        opacity: 1;
+        max-width: 36px;
+        font-size: 1.4rem;
+        line-height: 26px;
+        text-align: center;
+        transition: opacity .25s ease;
+
+        &:disabled {
+            opacity: .4;
+            user-select: none;
+        }
+
+        &:focus {
+            color: $c-blue;
+        }
+    }
+}
+
+.catalog-disable {
+    display: none;
+
+    &.enable {
+        display: inline-block;
+    }
+}
+
+.catalog-input {
+    width: 100%;
+    height: $catalog-input-height;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    border: 1px solid #c8d7e1;
+}
+
+.catalog-select {
+    .chosen-container {
+        font-size: 1.2rem;
+    }
+
+    .chosen-container-single .chosen-single {
+        padding-left: 10px;
+        height: $catalog-input-height;
+        line-height: $catalog-input-height - 2;
+    }
+
+    .chosen-container-single .chosen-single div b {
+        background-position: 0 5px;
+    }
+}
+
+.params {
+    clear: both;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        &__label {
+            margin-bottom: 15px;
+        }
+
+        &__value {
+            display: block;
+        }
+    }
+}
+
+.catalog-tabs {
+    margin-bottom: 15px;
+
+    &__item {
+        display: none;
+        margin-bottom: 20px;
+
+        &.current {
+            display: block;
+        }
+    }
+}
+
+.catalog-eye {
+    font-size: 1.4rem;
+}
+
+.catalog-edit {
+    color: $catalog-grey;
+    font-size: 1.2rem;
+    position: relative;
+    top: 0px;
+    margin-right: 5px;
+}
+
+.catalog-view,
+.catalog-print,
+.catalog-remove,
+.catalog-view-broken {
+    margin: 0 auto;
+    font-size: 1.8rem;
+}
+
+.catalog-print {
+    margin-right: 10px;
+
+    &:hover {
+        color: green;
+    }
+}
+
+.catalog-clone {
+    margin: 0 auto;
+    font-size: 1.6rem;
+}
+
+.catalog-view-broken {
+    color: $catalog-error;
+}

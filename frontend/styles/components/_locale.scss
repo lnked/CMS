@@ -1,0 +1,61 @@
+.locale-search {
+    width: 300px;
+    height: 100%;
+    position: relative;
+
+    &__input {
+        width: 100%;
+        float: left;
+        margin-right: 5px;
+    }
+
+    &__button {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        border: 0;
+        bottom: 1px;
+        font-size: 1.8rem;
+        outline: none;
+        padding: 0 20px;
+        cursor: pointer;
+        background: none;
+        background-color: #f4f4f4;
+    }
+}
+
+.locale__row {
+    clear: both;
+    position: relative;
+}
+
+.locale__row:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.locale__row__flag {
+    margin-right: 10px;
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.locale__input {
+    padding-left: 30px;
+}
+
+.locale__item {
+    display: block;
+}
+
+.locale__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.locale__item__value {
+    margin-left: 5px;
+}

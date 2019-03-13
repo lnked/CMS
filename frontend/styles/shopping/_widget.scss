@@ -1,0 +1,43 @@
+.widget-table {
+    clear: both;
+    color: #000;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 10px 15px;
+    margin-bottom: 7px;
+    background-color: #f8f8f9;
+    border: 1px solid #d4d8d8;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__group {
+        text-align: left;
+    }
+
+    &__title {
+        color: #121212;
+        font-weight: 400;
+        text-align: left;
+
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__count {
+        text-align: right;
+    }
+
+    &__button {
+        text-align: right;
+    }
+
+    &__visible {
+        color: $green;
+    }
+
+    &__hidden {
+        color: $red;
+    }
+}

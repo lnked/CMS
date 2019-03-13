@@ -1,0 +1,135 @@
+{% spaceless %}
+<div class="consult">
+    <h3 class="consult__title">Заполните контактную форму, и мы свяжемся с Вами в ближайшее время!</h3>
+
+    {#
+    <div class="form-wrap">
+        {if isset($smarty.get.act) nocache}
+            {if $smarty.get.act == 'success'}
+                {if $locale == 'en'}
+                    <div class="alert success">Thank you, your message has been sent successfully</div>
+                {else}
+                    <div class="alert success">Спасибо, ваше сообщение успешно отправлено</div>
+                {/if}
+            {elseif $smarty.get.act == 'fail'}
+                {if $locale == 'en'}
+                    <div class="alert fail">When you send an error occurred</div>
+                {else}
+                    <div class="alert fail">При отправке сообщения произошла ошибка</div>
+                {/if}
+            {/if}
+        {/if}
+    </div>
+    #}
+
+    <form class="consult__form" method="POST" action="">
+        <input type="hidden" name="club" value="Заявка в новый клуб">
+        <input type="hidden" name="_backuri" value="{{ _backuri }}">
+
+        {% if _csrf_token and _csrf_param %}
+            <input type="hidden" name="{{ _csrf_param }}" value="{{ _csrf_token }}">
+        {% endif %}
+
+        <div class="consult__form__content">
+            <div class="consult__row">
+                <div class="consult__row__content">
+                    <div class="consult__caption">
+                        <label for="name" class="consult__label">Фамилия и имя</label>
+                    </div>
+
+                    <div class="consult__field">
+                        <input class="consult__input" name="name" id="name" value="{{ data.name|escape }}">
+                    </div>
+                </div>
+
+                {% if errors.name %}
+                <div class="consult__error">{{ errors.name }}</div>
+                {% endif %}
+            </div>
+
+            <div class="consult__row">
+                <div class="consult__row__content">
+                    <div class="consult__caption">
+                        <label for="email" class="consult__label">Эл. почта</label>
+                    </div>
+
+                    <div class="consult__field">
+                        <input class="consult__input" name="email" id="email" value="{{ data.email|escape }}">
+                    </div>
+                </div>
+
+                {% if errors.email %}
+                <div class="consult__error">{{ errors.email }}</div>
+                {% endif %}
+            </div>
+
+            <div class="consult__row">
+                <div class="consult__row__content">
+                    <div class="consult__caption">
+                        <label for="phone" class="consult__label">Контактный телефон</label>
+                    </div>
+
+                    <div class="consult__field">
+                        <input class="consult__input mask-phone" name="phone" id="phone" value="{{ data.phone|escape }}">
+                    </div>
+                </div>
+
+                {% if errors.phone %}
+                <div class="consult__error">{{ errors.phone }}</div>
+                {% endif %}
+            </div>
+
+            <div class="consult__row">
+                <div class="consult__row__content">
+                    <div class="consult__caption">
+                        <label for="comment" class="consult__label">Комментарий</label>
+                    </div>
+
+                    <div class="consult__field">
+                        <textarea class="consult__textarea" name="comment" id="comment">{{ data.comment|escape }}</textarea>
+                    </div>
+                </div>
+
+                {% if errors.comment %}
+                <div class="consult__error">{{ errors.comment }}</div>
+                {% endif %}
+            </div>
+
+            <div class="consult__row">
+                <div class="consult__row__content">
+                    <div class="consult__captcha">
+                        <div class="g-recaptcha" data-sitekey="6LftAEYUAAAAANqlo8ibh_deWCK9gOqEo4iid60V"></div>
+                    </div>
+                </div>
+
+                {% if errors.captcha %}
+                <div class="consult__error consult__error--center">{{ errors.captcha }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="consult__check">
+            <div class="consult__row__content">
+                <label class="ui-checkbox ui-checkbox--inline">
+                    <input type="checkbox" name="access" value="Y" class="ui-checkbox__input"{% if data.access %} checked{% endif %}>
+                    <span class="ui-checkbox__visible" role="checkbox" aria-checked="true" tabindex="0"></span>
+
+                    <span class="ui-checkbox__label">
+                        <span class="ui-checkbox__label__middle">Отправляя форму, вы даете согласие на обработку своих персональных данных и принимаете <a href="/politika-konfidentsialnosti" target="_blank">пользовательское соглашение</a>.</span>
+                    </span>
+                </label>
+            </div>
+
+            {% if errors.access %}
+            <div class="consult__error">{{ errors.access }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit" name="submit_btn" class="consult__button"></button>
+    </form>
+
+    <div class="consult__man">
+        <img src="/images/card-man.png" class="consult__man__image" alt="">
+    </div>
+</div>
+{% endspaceless %}

@@ -1,0 +1,41 @@
+.popover-menu {
+    position: relative;
+    z-index: 10;
+    font-size: 0;
+}
+
+.popover-menu li {
+    margin: 0;
+}
+
+.popover-menu li a {
+    display: block;
+    padding: 10px 18px;
+    clear: both;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #000;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.popover-menu li a:focus,
+.popover-menu li a:hover {
+    background-color: #f6f5f3;
+}
+
+.popover-menu .active a,
+.popover-menu .active a:focus,
+.popover-menu .active a:hover {
+    color: $c-white;
+    text-decoration: none;
+    background-color: #337ab7;
+    outline: 0;
+}
+
+.popover-menu .divider {
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}

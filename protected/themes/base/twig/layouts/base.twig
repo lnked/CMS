@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- copyright (c) CELEBRO Studio | https://celebro.ru -->
+{% spaceless %}
+<html class="no-js" itemscope="itemscope" itemtype="http://schema.org/{% if not uri[1] %}WebPage{% else %}ItemPage{% endif %}" lang="{{ _page.lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
+    {{
+        assetCSS([
+            '/static/css/main.min.css'
+        ])
+    }}
+
+    {#
+    {{ compress({
+        media : 'all',
+        source : [
+            { 'file' : '/css/vendors.min.css' },
+            { 'file' : '/css/main.min.css' }
+        ]
+    }) }}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://i9.ytimg.com">
+    <link rel="preconnect" href="https://s.ytimg.com">
+
+    {{ compress({
+        media : 'all',
+        source : [
+            { 'file' : '/css/vendors.min.css' },
+            { 'file' : '/css/main.min.css' }
+        ]
+    }) }}
+
+    {{
+        asset.js([
+            '/css/vendors.min.js',
+            '/css/libs.min.js',
+            '/css/app.min.js'
+        ], async, defer)
+    }}
+
+    Asset::getInstance()->addCss("/css/slick.css");
+    Asset::getInstance()->addCss("/css/stylesheet.css");
+    Asset::getInstance()->addCss("/css/coach_animate.css");
+    Asset::getInstance()->addCss("/css/jquery.fancybox.css");
+    Asset::getInstance()->addCss("/css/default_main.css");
+    Asset::getInstance()->addCss("/css/banner-shar.css");
+    #}
+
+    <base href="{{ _page.pathname }}"/>
+
+    <title itemprop="name">{{ _meta.title }}</title>
+
+    {% if _csrf_token %}
+    <meta content="{{ _csrf_param }}" name="csrf-param">
+    <meta content="{{ _csrf_token }}" name="csrf-token">
+    {% endif %}
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#004225">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#004225">
+
+    <meta name="referrer" content="unsafe-url">
+
+    <meta name="title" content="{{ _meta.title }}">
+    <meta name="robots" content="{{ _meta.robots }}">
+    <meta name="keywords" content="{{ _meta.keywords }}">
+    <meta itemprop="description" name="description" content="{{ _meta.description }}">
+
+    <meta name="cms" content="celebro.cms">
+    <meta name="author" content="https://celebro.ru/">
+
+    <meta itemprop="inLanguage" content="{{ _page.lang }}">
+
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta content="true" name="HandheldFriendly">
+    <meta content="320" name="MobileOptimized">
+
+    {# <meta name="application-name" content="{{ constant('COMPANY_NAME') }}"> #}
+
+    {#
+    <meta property="og:site_name" content="{{ constant('COMPANY_NAME') }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ _og.title }}">
+    <meta property="og:description" content="{{ _og.description }}">
+    <meta property="og:url" content="{{ _og.url }}">
+
+    <meta name="twitter:site" content="@celebro_web">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ _meta.title }}">
+    <meta name="twitter:description" content="{{ _meta.description }}">
+    #}
+
+    {# <link rel="home" href="/"> #}
+    {# <link rel="search" href="/search" title="{{ constant('COMPANY_NAME') }}" type="application/opensearchdescription+xml"> #}
+    {# <link rel="canonical" href="{{ _page.canonical }}"> #}
+
+    <!--[if IEMobile]>
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="imagetoolbar" content="false">
+    <![endif]-->
+</head>
+
+<body class="page-{{ _page.system }}">
+
+	{% if block("header") is defined %}
+	    {% block header %}{% endblock %}
+	{% endif %}
+
+	{% if block("sidebar") is defined %}
+        {% block sidebar %}{% endblock %}
+	{% endif %}
+
+	<div class="layout-wrapper">
+
+	    <div class="layout-wrapper__container">
+
+			{% if block("breadcrumbs") is defined %}
+			    {% block breadcrumbs %}{% endblock %}
+			{% endif %}
+
+			{% if block("content") is defined %}
+			<main id="content" class="content" itemprop="mainContentOfPage">
+
+                {{ url('admin:index', 'item', 100) }}
+
+                {#
+                {{ render(url('/url/to/my/page')) }}
+
+                {{ form_label(form.name) }}
+
+                {{ form_label(form.name, 'Your Name', {'label_attr': {'class': 'foo'}}) }}
+
+                {{ form_label(form.name, null, {
+                    'label': 'Your name',
+                    'label_attr': {'class': 'foo'}
+                }) }}
+
+                {{ form_start(form, {'method': 'GET'}) }}
+                {{ form_end(form, {'render_rest': false}) }}
+
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.dueDate) }}
+
+                    {{ form_row(form.submit, { 'label': 'Submit me' }) }}
+                {{ form_end(form) }}
+
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+
+                    <input type="submit" class="btn btn-primary" value="{{ 'Save' | trans }}" />
+                {{ form_end(form) }}
+                #}
+
+			    {% block content %}{% endblock %}
+
+	        </main>
+			{% endif %}
+
+	    </div>
+
+		{% if block("footer") is defined %}
+		    {% block footer %}{% endblock %}
+		{% endif %}
+	</div>
+
+    {#
+    {{
+        assetJS([
+            '/static/js/vendors.min.js',
+            '/static/js/libs.min.js',
+            '/static/js/app.min.js'
+        ], [
+            'async'
+        ])
+    }}
+    #}
+
+    {#
+	{{ compress({
+	    async  : true,
+	    defer  : false,
+	    inline : false,
+	    source : [
+	        { 'file' : '/static/js/vendors.min.js' },
+            { 'file' : '/static/js/libs.min.js' },
+	        { 'file' : '/static/js/app.min.js' }
+	    ]
+	}) }}
+    #}
+
+</body>
+</html>
+{% endspaceless %}

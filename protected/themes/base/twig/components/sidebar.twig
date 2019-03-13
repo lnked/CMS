@@ -1,0 +1,56 @@
+{% spaceless %}
+<div class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+    <a id="navigation-sandwich" class="navigation-sandwich" href="#"></a>
+
+    <h1 class="sidebar__logo" itemprop="name"><a href="/" rel="home" itemprop="url" accesskey="1" data-title="CELEBRO.CMS">CELEBRO.CMS</a></h1>
+
+    <a href="/cart" class="cart-holder js-cart-holder">
+        <span class="cart-holder__count watch-cart-count">{{ _session.cart.count }}</span>
+        <span class="cart-holder__total">на <span class="cart-holder__total__value watch-cart-money">{{ _session.cart.amount }}</span> р.</span>
+        <span class="cart-holder__empty">корзина пуста</span>
+    </a>
+
+    {%- if _sitemenu.main -%}
+    <nav class="navigation" tabindex="-1" aria-label="Основное меню">
+        <ul class="navigation__list">
+        {%- for page in _sitemenu.main -%}
+            <li class="navigation__item" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"{% if page.current %} aria-current="page"{% endif %}>
+
+                <a href="{{ page.link }}" class="navigation__item__link{% if page.current %} is-current{% endif %}"{% if page.target %} target="{{ page.target }}"{% endif %} title="{{ page.name }}" itemprop="url" accesskey="{{ loop.index }}">
+                    {% if page.current %}
+                        <span class="visually-hidden">Текущий пункт:</span>
+                    {% endif %}
+                    <span itemprop="name">{{ page.name }}</span>
+                </a>
+
+                {%- if page.tree -%}
+                    <ul class="navigation__submenu" aria-haspopup="true">
+                    {%- for submenu in page.tree -%}
+                        <li class="navigation__item" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"{% if submenu.current %} aria-current="page"{% endif %}>
+                            <a href="{{ submenu.link }}" class="navigation__item__link {% if submenu.current %} is-current{% endif %}" title="{{ submenu.name }}" itemprop="url">
+                                <span itemprop="name">{{ submenu.name }}</span>
+                            </a>
+
+                            {%- if submenu.tree -%}
+                                <ul aria-haspopup="true">
+                                {% for last in submenu.tree %}
+                                    <li class="navigation__item" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"{% if last.current %} aria-current="page"{% endif %}>
+                                        <a href="{{ last.link }}" class="navigation__item__link {% if last.current %} is-current{% endif %}" title="{{ last.name }}" itemprop="url">
+                                            <span itemprop="name">{{ last.name }}</span>
+                                        </a>
+                                    </li>
+                                {%- endfor -%}
+                                </ul>
+                            {%- endif -%}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+                {%- endif -%}
+            </li>
+        {%- endfor -%}
+        </ul>
+    </nav>
+    {%- endif -%}
+
+</div>
+{% endspaceless %}

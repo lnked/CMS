@@ -1,0 +1,42 @@
+.datepicker-dropdown {
+    position: absolute;
+    z-index: 1000000;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-top: 6px;
+}
+
+.datepicker {
+    padding: 5px !important;
+    border-radius: 0 !important;
+}
+
+.datepicker th {
+	&.dow {
+	    font-size: 1.2rem;
+	    padding-top: 2px;
+	    line-height: 26px !important;
+	    text-transform: uppercase;
+	    background-color: #f1f1f1;
+	}
+
+	&.dow, &.prev, &.next, &.datepicker-switch {
+		border-bottom: 2px solid #fff;
+	}
+}
+
+.datepicker-days td,
+.datepicker-days th,
+.datepicker-years th,
+.datepicker-months th,
+.datepicker-decades th {
+    min-width: 28px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    border-radius: 0 !important;
+    vertical-align: middle !important;
+}
+
+.datepicker table tr td span {
+	border-radius: 0 !important;
+}

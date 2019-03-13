@@ -1,0 +1,27 @@
+{% spaceless %}
+<div class="slider j-slider">
+
+    {%- for slide in slider -%}
+    <div class="slider__item j-slider-item{% if loop.first %} is-active is-animate{% endif %}" data-index="{{ loop.index }}" style="background-image: url({{ slide.file }});">
+        <div class="slider__item__wrapper">
+            <div class="slider__content">
+                <div class="slider__title">
+                    {{ slide.title }}
+                </div>
+
+                <a href="/menu" class="slider__button">посмотреть предложение</a>
+            </div>
+        </div>
+    </div>
+    {%- endfor -%}
+
+    <ul class="slider__dots">
+        {%- for i in 1..count -%}
+        <li class="slider__dots__item">
+            <button type="button" data-index="{{ i }}" class="slider__dots__button j-slider-point{% if loop.first %} is-current{% endif %}"></button>
+        </li>
+        {%- endfor -%}
+    </ul>
+
+</div>
+{% endspaceless %}

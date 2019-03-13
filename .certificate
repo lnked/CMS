@@ -1,0 +1,35 @@
+#!/bin/bash
+
+DOMAIN=$1
+COMMON_NAME=${2:-$1}
+SUBJECT="/C=US/ST=California/L=Mountain View/O=Celebro Inc/CN=*.$COMMON_NAME"
+NUM_OF_DAYS=999
+
+SOURCE="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+PATH_ROOT="$( dirname "$SOURCE" )"
+
+
+if [ -z "$1" ]
+then
+	echo "Please supply a subdomain to create a certificate for";
+	echo "e.g. mysite.localhost"
+	exit;
+fi
+
+if [ -f device.key ]; then
+	KEY_OPT="-key"
+else
+	KEY_OPT="-keyout"
+fi
+
+cat ${SOURCE}/security/v3.ext | sed s/%%DOMAIN%%/$COMMON_NAME/g > ${SOURCE}/tmp/__v3.ext
+
+openssl req -new -newkey rsa:2048 -sha256 -nodes $KEY_OPT ${SOURCE}/device.key -subj "$SUBJECT" -out ${SOURCE}/device.csr
+
+openssl x509 -req -in ${SOURCE}/device.csr -CA ${SOURCE}/security/rootCA.pem -CAkey ${SOURCE}/security/rootCA.key -CAcreateserial -out ${SOURCE}/device.crt -days $NUM_OF_DAYS -sha256 -extfile ${SOURCE}/tmp/__v3.ext
+
+mv ${SOURCE}/device.csr ${SOURCE}/ssl/$DOMAIN.csr
+cp ${SOURCE}/device.crt ${SOURCE}/ssl/$DOMAIN.crt
+
+# remove temp file
+rm -f ${SOURCE}/device.crt;

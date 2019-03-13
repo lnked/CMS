@@ -1,0 +1,37 @@
+{% spaceless %}
+{% if pager.total and pager.limit and pager.total > pager.limit %}
+
+{% if pager.hash %}
+	{% set hash = pager.hash %}
+{% endif %}
+
+<div class="pagination clearfix">
+
+	<ul class="pagination__list" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+
+	{% if pager.prev %}
+		<li class="pagination__item">
+            <a href="{{ base_url }}?page={{ pager.prev }}{{ hash }}" class="pagination__item__page prev" rel="prev">&larr;</a>
+        </li>
+	{% endif %}
+
+	{% for page in range(low=1, high=pager.count, step=1) %}
+	    <li class="pagination__item">
+			<a href="{{ base_url }}?page={{ page }}{{ hash }}" itemprop="url" class="pagination__item__page{% if page == pager.page %} current{% endif %}">
+				<span itemprop="name">{{ page }}</span>
+			</a>
+		</li>
+	{% endfor %}
+
+	{% if pager.next %}
+		<li class="pagination__item">
+			<a href="{{ base_url }}?page={{ pager.next }}{{ hash }}" class="pagination__item__page next" rel="next">&rarr;</a>
+		</li>
+	{% endif %}
+
+	</ul>
+
+</div>
+
+{% endif %}
+{% endspaceless %}

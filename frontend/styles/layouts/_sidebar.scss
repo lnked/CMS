@@ -1,0 +1,37 @@
+.sidebar {
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    transition: 0.3s all ease;
+
+    &__inner {
+        width: 250px;
+        padding-top: 60px;
+        height: 100%;
+    }
+
+    &__logo {
+        width: 250px;
+        height: 60px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        background-color: $c-royal-blue;
+
+        &__celebro-cms {
+            text-transform: uppercase;
+            color: $c-white;
+            margin-left: 70px;
+            font-size: 1.8rem;
+            line-height: 62px;
+
+            span {
+                color: #fefefe;
+            }
+        }
+    }
+}

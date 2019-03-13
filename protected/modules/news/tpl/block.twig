@@ -1,0 +1,14 @@
+<p style="font-size: 20px; margin-bottom: 20px; padding: 20px; background-color: #00ffff;">test block</p>
+
+<div style="font-size: 15px; padding: 20px; background-color: #ccc;">
+    news:
+    {%if news %}
+        {{ news|json_encode }}
+    {% endif %}
+    <br>
+    <br>
+    uri:
+    {%if uri %}
+        {{ uri|json_encode }}
+    {% endif %}
+</div>

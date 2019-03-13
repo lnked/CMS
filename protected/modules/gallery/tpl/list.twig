@@ -1,0 +1,38 @@
+{% spaceless %}
+{% if gallery %}
+
+<script>
+    var lazyLoadPage = 'gallery';
+    var lazyLoadCount = {{ count }};
+    var lazyLoadLimit = {{ limit }};
+</script>
+
+<div class="list" id="preload-list">
+    {% for item in gallery %}
+        <div class="gallery list__item list__item--gallery">
+            {% if item.theme %}
+            <div class="gallery__tags">
+                <span class="gallery__tags__item gallery__tags__item--blue">{{ item.theme }}</span>
+            </div>
+            {% endif %}
+
+            <a href="{{ item.link }}" class="gallery__image">
+                <i class="gallery__image__before"></i>
+                <img src="{{ item.photo }}" class="gallery__image__src" alt="">
+            </a>
+
+            <div class="gallery__content">
+                <div class="gallery__data">
+                    <div class="gallery__date">{{ item.timestamp }}</div>
+                    <div class="gallery__title">{{ item.name }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="list__preload" id="preload-spinner">
+    <div class="spinner"></div>
+</div>
+{% endspaceless %}

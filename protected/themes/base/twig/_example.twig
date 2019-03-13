@@ -1,0 +1,26 @@
+{{ constant('RSS', date) }}
+{% app.request.cookies %}
+{{ app.request.cookies.get('COOKIE_NAME') }}
+
+{% if app.request.cookies.has('best_cookies_with_swiss_chocolate') %}
+    {# You have chosen your cookie brand! #}
+{% endif %}
+
+{# For $_POST variables use this : #}
+{{ app.request.parameter.get("page") }}
+
+{# For $_GET variables use this : #}
+{{ app.request.query.get("page") }}
+
+{# For $_COOKIE variables use this : #}
+{{ app.request.cookies.get("page") }}
+
+{# For $_SESSION variables use this : #}
+{{ app.request.session.get("page") }}
+
+<p>{{ t('yes') }}</p>
+<p>{{ t('vote_name') }}</p>
+
+{{ unit(1) }}
+
+{{ unit(2) }}

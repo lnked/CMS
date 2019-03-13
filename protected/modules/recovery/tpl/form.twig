@@ -1,0 +1,42 @@
+{% spaceless %}
+<form action="" method="POST" class="form">
+	<input type="hidden" name="_backuri" value="{$_backuri}">
+
+	<div class="popup__subber popup__subber_x7 clearfix">
+		<div class="popup__col popup__col_push">
+			<div class="form__row form__row_last">
+				<label for="" class="form__label form__label_mb4">Введите ваш e-mail</label>
+				<input type="text" class="form__input" value="">
+			</div>
+		</div>
+
+		<div class="popup__col">
+			<div class="form__row form__row_last">
+				<label for="" class="form__label form__label_mb4 form__label_top">Введи символы указанные на картинке</label>
+
+				<div class="form__captcha clearfix">
+					<div class="form__captcha__field">
+						<input type="text" class="form__input" value="">
+					</div>
+
+					<div class="form__captcha__image">
+						<img src="/captcha" width="120" height="50" class="form__captcha__image__src" alt="">
+						<a href="" class="form__captcha__refresh">ОБНОВИТЬ КАРТИНКУ</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup__buttons clearfix">
+		<div class="popup__col popup__col_push">
+			<button class="sbtn sbtn_hover sbtn_send" type="submit">ОТПРАВИТЬ ПАРОЛЬ</button>
+		</div>
+
+		<div class="popup__col">
+			<a href="" class="sbtn sbtn_link">ОТМЕНА</a>
+		</div>
+	</div>
+
+</form>
+{% endspaceless %}

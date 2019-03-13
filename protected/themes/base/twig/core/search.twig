@@ -1,0 +1,87 @@
+{% spaceless %}
+
+{% set action = '/search' %}
+
+{% if _page.lang and _page.lang != 'ru' %}
+    {% set action = '/' ~ _page.lang ~ '/search' %}
+{% endif %}
+
+<form action="{{ action }}" class="search" enctype="text/plain">
+    <input name="q" class="search__input" value="{{ _get.q }}" id="search-input" aria-label="Поиск по сайту" autofocus>
+
+    <button type="submit" id="search-button" class="button"{% if _get.q is empty %} disabled{% endif %}>
+        {% if _page.lang != 'ru' %}
+            Найти
+        {% else %}
+            Search
+        {% endif %}
+    </button>
+</form>
+
+{#
+<div class="search-result">
+
+    {% if search_error == 1 %}
+        <div class="search-result__text">Строка поиска должа содержать более 3-х символов</div>
+    {% elseif search_error == 2 %}
+        <div class="search-result__text">Вы ввели недопустимые символы для поиска по сайту</div>
+    {% elseif _get.q is not empty %}
+        <div class="search-result__text">Вы искали: <b>{{ search_word }}</b><br>Найдено: <b>{{ search_result_count ~ ' ' ~ declofnum(search_result_count, [ 'страница', 'страницы', 'страниц' ]) }}</b></div>
+
+        {% if search_result %}
+
+            <div class="search-result__title">Результаты:</div>
+
+            {% set page = (_get.page ? _get.page : 0) %}
+
+            <ul class="search-result__list">
+                {% for item in search_result %}
+
+                    {% set index = loop.index + page * 10 %}
+
+                    <li class="search-result__item clearfix">
+                        <div class="search-result__item__index">{{ index }}.</div>
+
+                        <div class="search-result__item__content">
+                            <a href="{{ item.link }}?highlight={{ _get.q }}" class="search-result__item__title">
+                                {% if item.page_title %}
+                                    {{ item.page_title }}
+                                {% else %}
+                                    Нет заголовка
+                                {% endif %}
+                            </a>
+
+                            <div class="search-result__item__text">{{ item.content_index }}</div>
+                            <div class="search-result__item__link">{{ item.link }}</div>
+                        </div>
+                    </li>
+
+                {% endfor %}
+                </ul>
+
+                {% if pager %}
+                    {% include 'components/pager.twig' with { 'pager' : pager } %}
+                {% endif %}
+
+        {% endif %}
+    {% endif %}
+</div>
+
+<script>
+    var input = document.getElementById('search-input');
+    var button = document.getElementById('search-button');
+
+    input.oninput = input.oncut = input.onpaste = function() {
+        var value = input.value.replace(/ /g, '');
+
+        if (value !== '') {
+            button.classList.remove('disabled');
+            button.removeAttribute('disabled');
+        } else {
+            button.classList.add('disabled');
+            button.setAttribute('disabled', '');
+        }
+    };
+</script>
+#}
+{% endspaceless %}

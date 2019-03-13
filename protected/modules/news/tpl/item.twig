@@ -1,0 +1,32 @@
+{% if news %}
+
+	<article class="news-item news-item_single clearfix" itemscope itemtype="http://schema.org/NewsArticle" role="document">
+		<meta itemprop="inLanguage" content="{{ _page.lang }}">
+
+		<div class="news-item__content">
+			<div class="inner">
+				<time class="news-item__date-published" datetime="{{ news.date_seo }}" itemprop="datePublished">{{ news.date }}</time>
+
+				<h3 class="news-item__title">
+					<span itemprop="name">{{ news.name|raw }}</span>
+				</h3>
+
+				{% if news.author %}
+				<div class="news-item__author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+					<span class="news-item__author__name" itemprop="name">{{ news.author.name }}</span>
+					<span class="news-item__author__job-title" itemprop="jobTitle">{{ news.author.job_title }}</span>
+				</div>
+				{% endif %}
+
+				<div class="news-item__description" itemprop="description">
+					{{ news.text|raw }}
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<div class="page-nav">
+		<a href="{{ module_root }}" class="page-nav__link page-nav__link_back">Вернуться</a>
+	</div>
+
+{% endif %}

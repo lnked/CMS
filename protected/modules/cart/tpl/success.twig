@@ -1,0 +1,37 @@
+{% spaceless %}
+
+<div class="payment">
+    {% if order.number %}
+    <div class="payment__number">Номер заказа: <strong>{{ order.number }}</strong></div>
+    {% endif %}
+
+    <div class="payment__description">
+        <p>Сумма счета: <strong>{{ money(order.cost) }} ₽</strong></p>
+
+        {# <p>Счет отправлен на e-mail: {{ order.email }}</p> #}
+
+        <p>Способ оплаты: <strong>{{ order.payment }}</strong></p>
+
+        {% if order.payment_type == 'online_card' %}
+        <p>Статус заказа: <strong class="payment__status">{{ order.status }}</strong></p>
+        {% else %}
+            <p>Статус заказа: <strong class="payment__status">Ваш заказ принят ожидает обработки.</strong></p>
+        {% endif %}
+    </div>
+
+    {#
+    <div class="payment__info">
+        <div class="payment__info__button">
+            <button class="button">Распечатать</button>
+        </div>
+
+        <a href="" class="">Загрузить счет в формате PDF</a>
+    </div>
+    #}
+
+    <div class="payment__description">
+        {# <p>Ваш аккаунт будет активирован в течении 24 часов после поступления оплаты, закрывающие документы будут автоматически направлены на ваш E-mail.</p> #}
+        <p>Если у вас возникли вопросы, обратитесь в службу поддержки <a href="mailto:support@eat-trip.ru">письменно</a> или по номеру 8 (988) 243-66-88</p>
+    </div>
+</div>
+{% endspaceless %}

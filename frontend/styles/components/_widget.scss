@@ -1,0 +1,21 @@
+.widget-list {
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.widget {
+	padding: 15px 20px;
+	background-color: $c-light-grey;
+
+	&__title {
+		color: $c-main-grey;
+		font-size: 1.8rem;
+		margin-bottom: 15px;
+	}
+
+	&__button {
+		clear: both;
+	}
+}

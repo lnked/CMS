@@ -1,0 +1,34 @@
+{% spaceless %}
+
+{% if uri[1] and _breadcrumbs %}
+
+<nav class="breadcrumbs clearfix">
+
+    <ol class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+
+    {% for item in _breadcrumbs %}
+        <li class="breadcrumbs__item" rel="nofollow" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            {% if loop.last %}
+
+                <span class="breadcrumbs__item__link current" itemprop="item">
+                    <span itemprop="name">{{ item.name }}</span>
+                </span>
+
+            {% else %}
+
+                <a href="{{ item.link }}" class="breadcrumbs__item__link" itemprop="url item">
+                    <span itemprop="name">{{ item.name }}</span>
+                </a>
+
+            {% endif %}
+            <meta itemprop="position" content="{{ loop.index }}">
+        </li>
+    {% endfor %}
+
+    </ol>
+
+</nav>
+
+{% endif %}
+
+{% endspaceless %}

@@ -1,0 +1,37 @@
+@import 'styles/_global.scss';
+
+.content {
+  width: 100%;
+}
+
+.location {
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+$colors: red, orange, yellow, green, blue, purple;
+$repeat: 20;
+
+.button {
+  color: #fff;
+  flex: 1 1 auto;
+  margin: 0 8px 8px 0;
+  padding: 25px;
+  font-size: 1.6rem;
+  text-align: center;
+  display: inline-block;
+  background-color: $c-smalt;
+
+  @for $i from 1 through $repeat {
+    &:nth-child(#{length($colors)}n+#{$i}) {
+      background-color: lighten(nth($colors, random(length($colors))), 20%);
+    }
+  }
+}

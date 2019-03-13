@@ -1,0 +1,22 @@
+.select-up {
+    position: relative;
+    z-index: 2000;
+}
+
+.chosen-container-single .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-single {
+    height: 34px !important;
+    line-height: 34px !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+}
+
+.chosen-container-single .chosen-single div b {
+    margin-top: 5px !important;
+}
+
+.chosen-container .chosen-drop,
+.chosen-container-single .chosen-single,
+.chosen-container-single .chosen-single input[type=text] {
+    border-color: $border !important;
+}

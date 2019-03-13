@@ -1,0 +1,48 @@
+.tooltip {
+    background: #3C3C3C;
+    color: #FFF;
+    font-size: 1.2rem;
+    line-height: 20px;
+    max-width: 400px;
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    box-sizing: border-box;
+    padding: 6px 10px;
+}
+
+.tooltip:before {
+    border: 6px solid rgba(0, 0, 0, 0);
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+.tooltip-up:before {
+    border-top-color: #3C3C3C;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -6px;
+}
+
+.tooltip-down:before {
+    border-bottom-color: #3C3C3C;
+    left: 50%;
+    margin-left: -6px;
+    top: -12px;
+}
+
+.tooltip-left:before {
+    border-right-color: #3C3C3C;
+    left: -12px;
+    margin-top: -6px;
+    top: 50%;
+}
+
+.tooltip-right:before {
+    border-left-color: #3C3C3C;
+    margin-top: -6px;
+    right: -12px;
+    top: 50%;
+}

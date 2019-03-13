@@ -1,0 +1,52 @@
+.managing {
+	clear: both;
+	margin-bottom: 7px;
+
+	&,
+	&__end,
+	&__start {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-right: 5px;
+		}
+	}
+
+	&__limit,
+	&__sortable {
+		margin-left: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&__label {
+			color: $c-main-grey;
+			font-size: 1.4rem;
+			margin-right: 5px;
+		}
+
+		&__select {
+			select {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+		}
+	}
+
+	&__limit {
+		&__select {
+			width: 100px;
+		}
+	}
+
+	&__sortable {
+		&__select {
+			width: 220px;
+		}
+	}
+}

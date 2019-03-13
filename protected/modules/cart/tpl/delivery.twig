@@ -1,0 +1,111 @@
+{% spaceless %}
+<h2>укажите адрес доставки</h2>
+
+<div class="cart">
+    <form action="" method="POST" class="cart__form form">
+        <a name="delivery"></a>
+
+        <div class="form__require"><span class="form__star">*</span> обязательно для заполнения</div>
+
+        <input type="hidden" name="_backuri" value="{{ _backuri }}">
+        <input type="hidden" name="_action" value="delivery">
+
+        {% if _csrf_token and _csrf_param %}
+        <input type="hidden" name="{{ _csrf_param }}" value="{{ _csrf_token }}">
+        {% endif %}
+
+        <label class="form__input">
+            <span class="form__input__title">Ф.И.О. <span class="form__star">*</span></span>
+            <input class="form__input__field{% if errors.name %} is-error{% endif %}" title="Ф.И.О." name="name"{% if data.name %} value="{{data.name}}"{% endif %}>
+            <div class="form__input__danger">Не заполнено поле</div>
+        </label>
+
+        <div class="form__row">
+            <div class="form__col">
+                <label class="form__input">
+                    <span class="form__input__title">Номер телефона <span class="form__star">*</span></span>
+                    <input class="form__input__field mask-phone{% if errors.phone %} is-error{% endif %}" title="Номер телефона" name="phone"{% if data.phone %} value="{{data.phone}}"{% endif %}>
+                    <div class="form__input__danger">Неправильный формат номера телефона</div>
+                </label>
+            </div>
+
+            <div class="form__col">
+                <label class="form__input">
+                    <span class="form__input__title">Электронная почта <span class="form__star">*</span></span>
+                    <input class="form__input__field{% if errors.email %} is-error{% endif %}" title="Электронная почта" name="email"{% if data.email %} value="{{data.email}}"{% endif %}>
+                    <div class="form__input__danger">Неправильный формат электронной почты</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="form__row">
+            <div class="form__col form__col--quarter">
+                <label class="form__input">
+                    <span class="form__input__title">Улица <span class="form__star">*</span></span>
+                    <input class="form__input__field{% if errors.street %} is-error{% endif %}" title="Улица" name="street"{% if data.street %} value="{{data.street}}"{% endif %}>
+                    <div class="form__input__danger">Укажите название улицы</div>
+                </label>
+            </div>
+
+            <div class="form__col form__col--quarter">
+                <label class="form__input">
+                    <span class="form__input__title">Дом <span class="form__star">*</span></span>
+                    <input class="form__input__field{% if errors.house %} is-error{% endif %}" title="Номер дома" name="house"{% if data.house %} value="{{data.house}}"{% endif %}>
+                    <div class="form__input__danger">Укажите номер дома</div>
+                </label>
+            </div>
+
+            <div class="form__col form__col--quarter">
+                <label class="form__input">
+                    <span class="form__input__title">Подъезд</span>
+                    <input class="form__input__field{% if errors.entrance %} is-error{% endif %}" title="Номер подъезда" name="entrance"{% if data.entrance %} value="{{data.entrance}}"{% endif %}>
+                    <div class="form__input__danger">Укажите номер подъезда</div>
+                </label>
+            </div>
+
+            <div class="form__col form__col--quarter">
+                <label class="form__input">
+                    <span class="form__input__title">№ квартиры <span class="form__star">*</span></span>
+                    <input class="form__input__field{% if errors.apartment %} is-error{% endif %}" title="Номер квартиры" name="apartment"{% if data.apartment %} value="{{data.apartment}}"{% endif %}>
+                    <div class="form__input__danger">Укажите номер квартиры</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="form__row">
+            <label class="form__input">
+                <span class="form__input__title">Комментарий к заказу</span>
+                <textarea class="form__input__field form__input__field--text{% if errors.comment %} is-error{% endif %}" title="Номер квартиры" name="comment">{% if data.comment %}{{data.comment}}{% endif %}</textarea>
+            </label>
+        </div>
+
+        <footer class="cart__footer">
+            <div class="cart__footer__first">
+                <p>Отправляя форму вы соглашаетесь на <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">правила обработки персональных данных</a>.</p>
+            </div>
+
+            <div class="form__button">
+                <button type="submit" class="button">продолжить</button>
+            </div>
+        </footer>
+    </form>
+</div>
+
+{% if steps %}
+<nav class="steps">
+    <ol class="steps__list">
+        {% for step in steps %}
+            {% if step.hide is empty %}
+                <li class="steps__item{% if current >= loop.index or step.passed %} is-passed{% endif %}">
+                    {% if current >= loop.index or step.passed %}
+                        <a href="/{{ module_root }}/{{ step.slug }}" class="steps__item__name">{{ step.name }}</a>
+                    {% else %}
+                        <span class="steps__item__name">{{ step.name }}</span>
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'fontello';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/cp/fonts/fontello/fontello.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/cp/fonts/inconsolata/regular.woff2') format('woff2'),
+         url('/cp/fonts/inconsolata/regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-weight: 700;
+    font-style: normal;
+    src: url('/cp/fonts/inconsolata/bold.woff2') format('woff2'),
+         url('/cp/fonts/inconsolata/bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: normal;
+    src: url('/cp/fonts/open_sans/light.woff2') format('woff2'),
+         url('/cp/fonts/open_sans/light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/cp/fonts/open_sans/regular.woff2') format('woff2'),
+         url('/cp/fonts/open_sans/regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-style: normal;
+    src: url('/cp/fonts/open_sans/bold.woff2') format('woff2'),
+         url('/cp/fonts/open_sans/bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ruble';
+    src: url('/cp/fonts/ruble/ruble.woff2') format('woff2'),
+         url('/cp/fonts/ruble/ruble.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}

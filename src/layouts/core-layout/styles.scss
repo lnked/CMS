@@ -1,0 +1,12 @@
+@import 'styles/_global.scss';
+
+$core-sidebar-width: $aside-width + $sidebar-width;
+
+.layout {
+  min-height: 100%;
+  // overflow: hidden;
+}
+
+.main {
+  width: 100%;
+}

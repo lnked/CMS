@@ -1,0 +1,126 @@
+.navigation {
+    width: 270px;
+    height: 100%;
+    background-color: $c-vulcan;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &__item {
+        position: relative;
+    }
+
+    &__link {
+        font-size: 0;
+        height: 58px;
+        line-height: 58px;
+        display: block;
+        cursor: pointer;
+        text-align: left;
+        color: #6d7176;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        transition: color 0.3s, background-color 0.3s;
+
+        &:hover {
+            color: $c-white;
+            color: #F3F3E6;
+        }
+
+        &__middle {
+            width: 100%;
+            vertical-align: middle;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        &_current,
+        &_current:hover {
+            color: #5c9df5;
+        }
+
+        &_current {
+            background-color: $c-bunker;
+        }
+
+        &__icon {
+            width: 42px;
+            height: 42px;
+            float: left;
+            line-height: 38px;
+            margin-left: 18px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            
+            &__item {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 2rem;
+                line-height: 1;
+            }
+
+            &__image {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        &_current &__icon {
+            border-color: $c-white;
+        }
+
+        &__text {
+            font-size: 1.5rem;
+            margin-left: 13px;
+            line-height: 40px;
+            position: relative;
+            z-index: 4;
+            display: inline-block;
+        }
+
+        &__badge {
+            position: absolute;
+            top: 4px;
+            left: 50px;
+            z-index: 10;
+            font-weight: 400 !important;
+        }
+    }
+
+    &__tooltip {
+        min-width: 160px;
+        height: 40px;
+        position: absolute;
+        left: 95px;
+        z-index: 1099;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: $c-white;
+        font-size: 1.4rem;
+        line-height: 40px;
+        padding: 0 20px;
+        border-radius: 2px;
+        transform: scale(1, 1);
+        transition: transform 0.3s, opacity 0.3s;
+
+        &_animate {
+            opacity: 0;
+            transform: scale(1.1, 1.1);
+        }
+
+        &:before {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: -16px;
+            top: 50%;
+            margin-top: -8px;
+            content: "";
+            border: 8px solid;
+            border-color: transparent #000 transparent transparent;
+            opacity: 0.8;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{strip}
+<div class="block-left clearfix"><div class="inner">
+	<h3>Регистрация</h3>
+	<form action="" method="post" class="form registration">
+		<div class="step step-active" id="step-1">
+			<label class="label">
+				<span class="label-name">Мобильный телефон <span class="star">*</span></span>
+				<input name="phone" value="+7" class="phone-mask required">
+			</label>
+			
+			<label class="label">
+				<span class="label-name">Пароль <span class="star">*</span></span>
+				<span class="password-field">
+					<input type="password" name="password" id="password" autocomplete="off" class="required">
+					<a href="#password" onclick="return false" class="password-toggle password-toggle-close" data-no-instant></a>
+				</span>
+			</label>
+		</div>
+		
+		<div class="step" id="step-2">
+			<p>Через пару секунд на свой номер вы получите специальный код. Введите его.</p>
+			<label class="label">
+				<span class="label-name">Код <span class="star">*</span></span>
+				<input name="confirm_code" class="integer required" maxlength="4">
+			</label>
+		</div>
+		
+		<div class="step" id="step-3">
+			<label class="label">
+				<span class="label-name">Ф.И.О.</span>
+				<input name="name">
+			</label>
+
+			<label class="label">
+				<span class="label-name">E-mail <span class="star">*</span></span>
+				<input name="email" class="required">
+			</label>
+
+			<label class="label">
+				<span class="label-name">Город</span>
+				<input name="city">
+			</label>
+
+			<label class="label">
+				<span class="label-name">Адрес</span>
+				<input name="address">
+			</label>
+		</div>
+
+		<button type="submit" class="btn btn-large btn-disabled" disabled data-no-instant>Продолжить регистрацию</button>
+	</form>
+</div></div>
+
+<div class="block-right clearfix"><div class="inner">
+	{if isset($smarty.session.reg_user.id )}
+		<h3>Пользователь</h3>
+		<div class="auth-user">
+			<p><strong>id:</strong> {$smarty.session.reg_user.id}</p>
+			<p><strong>Ф.И.О.:</strong> {$smarty.session.reg_user.name}</p>
+			<p><strong>Город:</strong> {$smarty.session.reg_user.city}</p>
+			<p><strong>Адрес:</strong> {$smarty.session.reg_user.address}</p>
+			<p><strong>E-mail:</strong> {$smarty.session.reg_user.email}</p>
+			<p><strong>Мобильный телефон:</strong> {$smarty.session.reg_user.phone}</p>
+			<p><strong>Дата регистрации:</strong> {$smarty.session.reg_user.created}</p>
+		</div>
+	{else}
+		<h3>Авторизация</h3>
+		<form action="" method="post" class="form authorization">
+			<label class="label">
+				<span class="label-name">E-mail <span class="star">*</span></span>
+				<input name="email" class="required">
+			</label>
+			
+			<label class="label">
+				<span class="label-name">Пароль <span class="star">*</span></span>
+				<span class="password-field">
+					<input type="password" name="password" id="password" class="required">
+					<a href="#password" onclick="return false" class="password-toggle password-toggle-close" data-no-instant></a>
+				</span>
+			</label>
+
+			<button type="submit" class="btn btn-large" data-no-instant>Войти</button>
+		</form>
+	{/if}
+</div></div>
+{/strip}

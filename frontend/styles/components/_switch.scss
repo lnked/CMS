@@ -1,0 +1,56 @@
+.switch {
+    width: 32px;
+    height: 17px;
+    user-select: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $catalog-grey;
+    transition: background-color $a-time ease-in-out;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    width: 13px;
+    height: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: $c-white;
+    transition: $a-time;
+    transition: background .1s ease, transform .1s ease;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .slider {
+    background-color: $catalog-green;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px $catalog-green;
+}
+
+input:checked + .slider:before {
+    transform: translateX(15px);
+}
+
+.slider.round {
+    border-radius: 17px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

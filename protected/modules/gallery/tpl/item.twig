@@ -1,0 +1,45 @@
+{% spaceless %}
+{% if gallery %}
+<script>
+    var lazyLoadPage = 'galleryitem-{{ gallery.id }}';
+    var lazyLoadItem = '{{ gallery.groupid }}';
+    var lazyLoadCount = {{ count }};
+    var lazyLoadLimit = {{ limit }};
+</script>
+
+<article class="gallery-item" itemscope itemtype="http://schema.org/ImageGallery">
+	<meta itemprop="inLanguage" content="{{ _page.lang }}">
+
+	<div class="gallery-item__content">
+        <meta itemprop="name" content="{{ gallery.name|raw }}">
+		<meta itemprop="datePublished" content="{{ gallery.date_seo }}">
+
+		<div class="gallery-item__description" itemprop="description">
+			{{ gallery.description|raw }}
+		</div>
+
+		<div class="gallery-item__list" id="preload-list">
+		{% for image in gallery.image %}
+
+			<figure class="gallery-item__item" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="{{ image.original }}" data-fancybox="gallery" itemprop="contentUrl" class="gallery-item__image zoom" target="_blank">
+                    <i class="gallery-item__image__before"></i>
+					<img src="{{ image.preview }}" class="gallery-item__image__src" itemprop="thumbnail" alt="">
+				</a>
+			</figure>
+
+		{% endfor %}
+		</div>
+	</div>
+</article>
+
+<div class="list__preload" id="preload-spinner">
+    <div class="spinner"></div>
+</div>
+
+<div class="list__center">
+    <a href="/{{ module_root }}" class="list__button">Вернуться к фотоотчетам</a>
+</div>
+
+{% endif %}
+{% endspaceless %}

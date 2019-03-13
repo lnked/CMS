@@ -1,0 +1,16 @@
+body {
+    padding: 10px;
+    min-width: 320px;
+    overflow: hidden;
+    background-color: $c-steel;
+}
+
+.layout-wrapper {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}

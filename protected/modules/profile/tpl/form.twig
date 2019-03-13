@@ -1,0 +1,196 @@
+<form action="" method="POST" class="form profile">
+	<input type="hidden" name="_backuri" value="{$_backuri}">
+	
+	<div class="popup__sidebar">
+
+		<div class="profile__image">
+			<div class="profile__image__crown"></div>
+			<div class="profile__image__wrap">
+				<div class="profile__image__inner">
+				<!--
+					<img src="./images/content/user-large.jpg" class="profile__image__picture" alt="">
+				-->
+				</div>
+			</div>
+		</div>
+		
+		<div class="profile__upload">
+			<span class="profile__upload__link">
+				Загрузить фото
+				<input type="file" name="" class="profile__upload__link__input">
+			</span>
+		</div>
+
+	</div>
+	
+	<div class="popup__push-content">
+		<div class="inner">
+			
+			<div class="popup__upper clearfix">
+				<div class="popup__col popup__col_push-sm">
+					<div class="popup__col__header popup__col__header_xm popup__col__header_push-top">Личные данные</div>
+				</div>
+			</div>
+
+			<div class="popup__subber popup__subber_x3 clearfix">
+				<div class="popup__col popup__col_push-sm">
+					<div class="form__row form__row_xs">
+						<label for="" class="form__label form__label_xm">Имя:<span class="form__star">*</span></label>
+						<input type="text" class="form__input error" value="Елизавета">
+						<div class="form__error-text">Поле «Имя» может состоять из кириллицы, тире и пробела<br>от 2 до 50 символов.</div>
+					</div>
+					
+					<div class="form__row">
+						<label for="" class="form__label form__label_xm">Отчество:</label>
+						<input type="text" class="form__input error" value="">
+						<div class="form__error-text">Поле «Отчество» может состоять из кириллицы, тире и пробела<br>от 2 до 50 символов.</div>
+					</div>
+
+					<div class="form__row form__row_sm">
+						<label for="email-field" class="form__label form__label_xm">Электронная почта:<span class="form__star">*</span></label>
+						<input type="text" id="email-field" class="form__input form__input_disabled" value="liza.konstantinopolskay@mail.ru">
+						<a href="#email-field" onclick="return false" class="profile__link trigger-change-email">Изменить электронный адрес</a>
+					</div>
+				</div>
+
+				<div class="popup__col">
+					<div class="form__row form__row_xs">
+						<label for="" class="form__label form__label_xm">Фамилия:<span class="form__star">*</span></label>
+						<input type="text" class="form__input error" value="Константинопольская">
+						<div class="form__error-text">Поле «Фамилия» может состоять из кириллицы, тире и пробела<br>от 1 до 50 символов.</div>
+					</div>
+
+					<div class="form__row clearfix">
+						<div class="form__row_left">
+							<label for="" class="form__label form__label_xm">Дата рождения:<span class="form__star">*</span></label>
+							<div class="form__calendar form__calendar_simple">
+								<input type="text" class="form__input error form__calendar__field date-mask" placeholder="дд/мм/гггг" value="07/09/1680">
+							</div>
+							<div class="form__error-text">Выберите дату, месяц и год<br>рождения.</div>
+						</div>
+						
+						<div class="form__row_right">
+							<label for="" class="form__label form__label_xm">Пол:<span class="form__star">*</span></label>
+
+							<div class="form__select form__select_161">
+								<select name="" placeholder="--" class="js-select-single">
+									<option value="">Мужской</option>
+									<option value="">Женский</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="form__row form__row_sm">
+						<label for="" class="form__label form__label_mb3">Телефон:</label>
+						<input type="text" id="phone-field" class="form__input form__input_disabled" value="+7 (916) 999-0444">
+						<a href="#phone-field" onclick="return false" class="profile__link trigger-change-email">Изменить электронный адрес</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="popup__upper popup__upper_x1 clearfix">
+				<div class="popup__col__header popup__col__header_xs">Адрес</div>
+				<div class="popup__col__comment">(по указанному адресу будут высланы призы)</div>
+			</div>
+
+			<div class="popup__subber popup__subber_x5 clearfix">
+				
+				<div class="form__row form__row_mb7 clearfix">
+					<div class="popup__col popup__col_push-sm">
+						<label for="" class="form__label form__label_mb4">Регион/город:<span class="form__star">*</span></label>
+						<div class="form__select">
+							<input type="text" autocomplete="off" placeholder="Населенный пункт или индекс" class="form__input simple-settlement-input-textbox ui-autocomplete-input" name="postAddress[quickModeInput][_value]">
+						</div>
+					</div>
+					<div class="popup__col">
+						<label for="" class="form__label form__label_mb4">Населенный пункт:</label>
+						<div class="form__select">
+							<select name="" placeholder="--" class="js-select-single">
+								<option value="">1</option>
+								<option value="">2</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form__row form__row_mb27 clearfix">
+					<div class="popup__col popup__col_push-sm">
+						<label for="" class="form__label form__label_mb4">Улица:</label>
+						<input type="text" class="form__input" value="Профсоюзная">
+					</div>
+					<div class="popup__col">
+						<label for="" class="form__label form__label_mb4">Район:</label>
+						<input type="text" class="form__input" value="">
+					</div>
+				</div>
+
+				<div class="form__row form__row_sm clearfix">
+					<div class="popup__col popup__col_push-sm">
+						<div class="form__row__col-3">
+							<label for="" class="form__label form__label_mb4">Дом</label>
+							<input type="text" class="form__input form__input_center" value="12">
+						</div>
+
+						<div class="form__row__col-3 form__row__col-3_middle">
+							<label for="" class="form__label form__label_mb4">Корпус</label>
+							<input type="text" class="form__input form__input_center" value="3">
+						</div>
+						
+						<div class="form__row__col-3">
+							<label for="" class="form__label form__label_mb4">Квартира</label>
+							<input type="text" class="form__input form__input_center" value="42">
+						</div>
+					</div>
+					<div class="popup__col">
+						<label for="" class="form__label form__label_mb4">Индекс:</label>
+						<input type="text" class="form__input form__input_center form__input_index" value="117347">
+					</div>
+				</div>
+			</div>
+
+			<div class="popup__upper popup__upper_x3 clearfix">
+				<div class="popup__col__header popup__col__header_sm">Изменение пароля</div>
+			</div>
+
+			<div class="popup__subber clearfix">
+				<div class="popup__col popup__col_push-sm">
+					<div class="form__row form__row_mb4">
+						<label for="" class="form__label form__label_mb4">Старый пароль:</label>
+						<input type="text" class="form__input" value="">
+					</div>
+				</div>
+			</div>
+
+			<div class="popup__subber popup__subber_x6 clearfix">
+				<div class="popup__col popup__col_push-sm">
+					<div class="form__row">
+						<label for="" class="form__label form__label_mb4">Новый пароль:</label>
+						<input type="text" class="form__input" value="">
+					</div>
+				</div>
+
+				<div class="popup__col">
+					<div class="form__row">
+						<label for="" class="form__label form__label_mb4">Подтвердите новый пароль:</label>
+						<input type="text" class="form__input" value="">
+					</div>
+				</div>
+			</div>
+			
+			<div class="form__error-text form__error-text_reverse">Поле под ошибку</div>
+
+			<div class="popup__buttons clearfix">
+				<div class="popup__col popup__col_push-sm">
+					<button class="btn btn_hover btn_send" type="submit">Сохранить изменения</button>
+				</div>
+				
+				<div class="popup__col">
+					<a href="" class="btn btn_link">Отменить</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+</form>

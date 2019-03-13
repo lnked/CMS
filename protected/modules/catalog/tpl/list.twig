@@ -1,0 +1,55 @@
+{% spaceless %}
+{% if menu %}
+    <div class="catalog">
+        {% for category in menu %}
+
+            {% if category.items %}
+                <div class="catalog__category">
+                    <div class="catalog__category__name">{{ category.name }}</div>
+
+                    <div class="catalog__category__list">
+                        {% for product in category.items %}
+                        <div class="catalog__category__product product{% if product.modification|length == 1 %} product--center{% endif %}">
+                            <div class="product__group">
+                                {% if product.photo is empty %}
+                                <div class="product__image">
+                                    <img src="/images/no-photo-yellow.png" alt="" class="product__image__src">
+                                </div>
+                                {% else %}
+                                <a href="{{ product.zoom }}" class="product__image zoom" data-fancybox="{{ product.id }}">
+                                    <img src="{{ product.photo }}" alt="" class="product__image__src">
+                                </a>
+                                {% endif %}
+
+                                <div class="product__name">{{ product.name }}</div>
+                                <div class="product__description">{{ product.description }}</div>
+                            </div>
+
+                            <div class="product__right">
+                                <div class="product__modification">
+                                {% for mod in product.modification %}
+                                    <div class="product__modification__item">
+                                        <div class="product__weight">{{ mod.weight }}</div>
+                                        <div class="product__price">{{ money(mod.price) }} <span class="ruble">p</span></div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+
+                                <div class="product__button j-cart-button">
+                                    {%- if _session.cart.items[product.id] -%}
+                                        {% include 'components/quantity.twig' with { product: product, items: _session.cart.items } only %}
+                                    {%- else -%}
+                                        <button type="button" class="product__trigger j-cart-add" data-product="{{ product.id }}">в корзину</button>
+                                    {%- endif -%}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,15 @@
+.add-size {
+	font-size: 1.3rem;
+	float: right;
+	padding: 0;
+	
+	&_left {
+		float: left;
+	}
+
+	.zmdi {
+		display: inline-block;
+		vertical-align: top !important;
+		margin-right: 3px;
+	}
+}

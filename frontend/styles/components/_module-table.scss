@@ -1,0 +1,145 @@
+.module-table {
+    width: 100%;
+    clear: both;
+    font-size: 1.4rem;
+    line-height: 1.45;
+    table-layout: fixed;
+    background-color: $catalog-background;
+    border-bottom: 2px solid $catalog-bot-border;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    &__sort {
+        cursor: pointer;
+        user-select: none;
+        line-height: 14px;
+        padding-right: 16px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-image: url(/cp/images/ico/sort.svg);
+        background-position: 100% 50%;
+        background-size: 8px 10px;
+
+        // .active {
+        //     background: #ffe100;
+        //     background: linear-gradient(to bottom,#f7a700 0%,#ffe100 100%);
+        //     box-shadow: inset 0 1px 3px 1px rgba(0,0,0,.3);
+        // }
+
+        &.asc {
+            background-image: url(/cp/images/ico/sort-ascending.svg);
+        }
+
+        &.desc {
+            background-image: url(/cp/images/ico/sort-descending.svg);
+        }
+
+        &--disable {
+            cursor: default;
+            background: none;
+            padding-right: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__header {
+        padding: 11px 3px;
+        text-align: left;
+        font-weight: 400;
+        line-height: 1;
+        vertical-align: middle;
+        color: $catalog-header-color;
+        background-color: $catalog-header;
+        border-bottom: 1px solid #fff;
+
+        &:first-child {
+            border-left: 1px solid $catalog-header;
+        }
+
+        &:last-child {
+            padding-left: 5px;
+            border-right: 1px solid $catalog-header;
+        }
+    }
+
+    &__sub-header {
+        line-height: 1;
+        padding: 8px 2px;
+        vertical-align: middle;
+        background: $catalog-sub-header;
+        border-bottom: 2px solid $catalog-sub-border;
+
+        &:first-child {
+            border-left: 1px solid $catalog-bot-border;
+        }
+
+        &:last-child {
+            border-right: 1px solid $catalog-bot-border;
+        }
+
+        .switch {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    &__column {
+        padding: 8px 9px;
+        vertical-align: middle;
+        color: $catalog-column-color;
+        border: 1px solid $catalog-border;
+        background-color: $catalog-column-bg;
+    }
+
+    &__vhcenter {
+        padding: 0;
+        line-height: 1;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    &__center {
+        padding: 0;
+        text-align: center;
+    }
+
+    &__right {
+        text-align: right;
+    }
+
+    &__image {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    &__empty {
+        padding: 15px;
+        text-align: center;
+    }
+
+    &__separator {
+        padding: 5px;
+    }
+
+    &__link {
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__row:hover &__column {
+        background-color: $catalog-column-hover;
+    }
+
+    &__row--marked &__column,
+    &__row--marked:hover &__column {
+        background-color: #ffd800;
+        background-color: $c-tahiti-gold;
+
+        a {
+            color: $c-black;
+        }
+    }
+}

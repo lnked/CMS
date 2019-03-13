@@ -1,0 +1,312 @@
+.table-full {
+    width: 100%;
+}
+
+.table_hdr {
+    display: block;
+    color: #2c3e50;
+    line-height: 16px;
+}
+
+.table_hdr:hover .zmdi {
+    color: #3498db;
+}
+
+.table_hdr .zmdi {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.table_u .zmdi:before {
+    content: '\f2f7';
+}
+
+.table_d .zmdi:before {
+    content: '\f2f1';
+}
+
+.table__drag {
+    cursor: pointer;
+}
+
+.variant-row-table {
+    margin-bottom: 0;
+
+    .h {
+        color: #666 !important;
+        border-color: #DCDCDC;
+        background-color: #e4e6ea !important;
+    }
+
+    &__empty {
+
+        &.disable {
+            display: none;
+        }
+    }
+}
+
+.table-input {
+    border-color: #DCDCDC !important;
+    background: #e4e6ea;
+}
+
+.no-border {
+    td, th {
+        border: 0 !important;
+    }
+}
+
+.no-padding {
+    td, th {
+        padding: 0 !important;
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $c-white;
+    border: 1px solid #eef0f6;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    color: #2c3e50;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+.table tr.placeholder {
+    display: block;
+    background: red;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.table tr.placeholder:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: red;
+    margin-top: -5px;
+    left: -5px;
+    border-right: none;
+}
+
+.table th,
+.table td {
+    padding: 0;
+    outline: 0 none;
+}
+
+.table th {
+    padding: 10px;
+    color: $c-white;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: .05ex;
+    vertical-align: middle;
+    border: 1px solid $dark-gray;
+    background-color: $dark-gray;
+}
+
+.table th a.table_hdr {
+    color: #f3f6f8;
+}
+
+.table th a.table_hdr .zmdi {
+    font-size: 1.4rem;
+    margin-right: 3px;
+    line-height: 15px;
+}
+
+.table th a.table_hdr:hover,
+.table th a.table_hdr:hover .zmdi {
+    color: #f5f5f5;
+}
+
+.table td {
+    border: 1px solid #e4e6ea;
+    padding: 8px 10px;
+
+    &.table__full-group {
+        background-color: rgba(85, 124, 226, 0.28) !important;
+    }
+
+    &.table__particle-group {}
+}
+
+.table td.center-middle {
+    padding: 13px 10px;
+}
+
+.table tbody tr td {
+    padding: 8px 10px;
+    line-height: 1.44;
+    vertical-align: middle;
+}
+
+.table .dragged {
+    background-color: #ffc376;
+}
+
+.table td.h {
+    padding: 9px 10px 7px;
+    background: #F5F5F5;
+    color: #8e98ae;
+    line-height: 21px;
+    vertical-align: middle;
+}
+
+.table td.hl,
+.table tbody tr:nth-child(2n) {
+    color: #5C626F;
+    background-color: #F5F5F5;
+}
+
+.table td.ch {
+    background-color: #fefbf2;
+}
+
+.table td.settings-row {
+    background: #f3f6f8;
+    border-bottom-color: #d4d8d8;
+    color: #8e98ae;
+    line-height: 18px;
+    vertical-align: top;
+    padding: 0 !important;
+}
+
+.table td.checkbox-col {
+    padding: 1px 4px 0;
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table .zmdi,
+.table td.va_m {
+    vertical-align: middle;
+}
+
+.table td.va_t {
+    vertical-align: top;
+}
+
+.table td.va_b {
+    vertical-align: bottom;
+}
+
+.table td.tac {
+    text-align: center;
+}
+
+.table td.editor-row {
+    padding: 0;
+}
+
+.table td.editor-row .breadcrumbs {
+    margin-left: -1px;
+}
+
+.table td.empty-row {
+    background: $c-white;
+    padding: 30px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table td p {
+    margin-bottom: 10px;
+}
+
+.table .simple-row td {
+    padding: 1px 0;
+    font-size: 0;
+    background-color: #eee;
+}
+
+.module-table td select {
+    width: 100%;
+}
+
+.table td.move-row {
+    padding-left: 20px;
+    background-image: url(../images/move-icon.png);
+    background-repeat: no-repeat;
+    background-position: 5px 9px;
+    background-size: 7px 24px;
+}
+
+.table tfoot td {
+    background: #F0F0F0;
+    border: solid #e4e6ea;
+    border-width: 3px 1px 0;
+}
+
+.table td.tac:last-child {
+    vertical-align: middle;
+    padding: 8px 8px;
+}
+
+.table td.tac:last-child .zmdi {
+    float: left;
+    margin: 0 2px;
+}
+
+.table td.tac:last-child .zmdi:last-child {
+    float: right;
+}
+
+.table td.tac:last-child .icon-center {
+    float: none !important;
+    margin: 0 auto;
+}
+
+.table-simple {
+    table-layout: fixed;
+    margin-bottom: 5px;
+}
+
+.table-simple tbody tr td,
+.table-simple td.h {
+    padding: 2px 2px;
+    text-align: center;
+}
+
+.table-simple input {
+    padding: 0 5px;
+    height: 26px;
+    border-width: 1px;
+    line-height: 26px;
+}
+
+.table-simple select {
+    height: 26px;
+    border-width: 1px;
+}
+
+.table-simple .sp {
+    padding: 1px;
+    text-align: center;
+}
+
+.table-simple .np {
+    padding: 1px;
+}
+
+.table-simple .npr {
+    padding-right: 0;
+}

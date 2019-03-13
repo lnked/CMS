@@ -1,0 +1,355 @@
+/* Form */
+
+button {
+    overflow: visible;
+}
+
+button,select {
+    text-transform: none;
+}
+
+button,html input[type="button"],input[type="reset"],input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+button[disabled],html input[disabled] {
+    cursor: default;
+    opacity: .5;
+}
+
+button[readonly],html input[readonly] {
+    cursor: default;
+    opacity: .5;
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input[type="checkbox"],input[type="radio"] {
+    padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    height: 34px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 0 13px;
+    border: 1px solid $c-pattern-blue;
+    color: $c-eclipse;
+    background: $c-white;
+}
+
+form input {
+    padding: 0 10px;
+}
+
+form input[type="file"] {
+    padding: 0;
+}
+
+form textarea {
+    resize: none;
+    min-height: 75px;
+    padding: 5px 10px;
+    line-height: 18px;
+}
+
+form textarea:focus,
+form input:focus {
+    outline: 0 none;
+    
+    &:not([readonly]) {
+        border-color: #719fbe;
+    }
+}
+
+form input.tac,
+form textarea.tac {
+    text-align: center;
+}
+
+form input.error,
+form textarea.error,
+form input.error:focus,
+form textarea.error:focus {
+    border-color: $c-cinnabar;
+}
+
+form input.w50,
+form textarea.w50 {
+    width: 50%;
+}
+
+form input.w25,
+form textarea.w25 {
+    width: 25%;
+}
+
+form input[type="checkbox"],
+form input[type="radio"] {
+    width: auto !important;
+}
+
+form input.ord {
+    width: 100px;
+    text-align: right;
+}
+
+form input.s-ord {
+    width: 70px;
+    padding: 0 3px;
+}
+
+form input.x-ord {
+    width: 70px;
+    padding: 0 10px;
+}
+
+form .empty {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    opacity: .2;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: none;
+    transition: opacity .3s;
+}
+
+form .empty:hover {
+    opacity: 1.0;
+}
+
+form .label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 18px;
+    color: #000;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+form .label-box {
+    width: 300px;
+    float: left;
+    margin-right: 10px;
+}
+
+form .label .name {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form .label input,
+form .label textarea {
+    clear: both;
+    display: block;
+}
+
+.form__header {
+    margin-bottom: 10px;
+}
+
+.form__row {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.form_column {
+    width: 240px;
+    height: 34px;
+    font-size: 0;
+    margin-right: 5px;
+    float: left;
+    line-height: 34px;
+}
+
+.form_column .controll {
+    vertical-align: middle;
+    line-height: 1;
+    margin: 0 5px 0;
+}
+
+.form_column_auto {
+    width: auto;
+}
+
+.form_column_half {
+    width: 120px;
+}
+
+.controll {
+	min-width: 16px;
+	min-height: 16px;
+	display: inline-block;
+	position: relative;
+    cursor: pointer;
+	font-size: 0;
+}
+
+.controll + .controll { margin-left: 10px; margin-bottom: 7px; }
+
+.controlls-wrapper .controll {
+    margin-right: 10px;
+}
+
+.controlls-wrapper .controll + .controll {
+    margin-left: 0;
+}
+
+.controll_single {
+    margin: 0;
+}
+
+.calendar-wrapper {
+    clear: both;
+    height: 35px;
+    margin-top: 5px;
+}
+
+.option-group {
+    clear: both;
+    font-size: 0;
+}
+
+.option-group:before,
+.option-group:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.option-group:after {
+    clear: both;
+}
+
+.option-group label {
+    height: 34px;
+    float: left;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin: 0 2px 2px 0;
+}
+
+.option-group label input {
+    height: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+
+.option-group label .option {
+    background: $c-solitude;
+    display: block;
+    padding: 0 10px;
+    z-index: 1;
+    font-size: 1.4rem;
+    line-height: 34px;
+    color: #3c3c3c;
+}
+
+.option-group label input:checked + .option {
+    background: $c-royal-blue !important;
+    color: $c-white;
+}
+
+.option-group label.disallow input:checked + .option {
+    background: $c-atomic-tangerine !important;
+    color: $c-white;
+}
+
+.option-combo {
+    float: left;
+    clear: none !important;
+}
+
+.option-combo label {
+    margin: 0;
+}
+
+input + .option-combo {
+    margin-left: 2px;
+}
+
+.option-group label {
+    margin-right: 1px;
+}
+
+.option-group.simple label {
+    margin-right: 0;
+}
+
+.option-group.simple label .option {
+    padding: 0 7px;
+}
+
+.option-both {
+    margin: 0;
+}
+
+.option-both label {
+    width: 100%;
+    margin: 0;
+}
+
+.option-simple label {
+    height: 26px;
+}
+
+.option-simple label .option {
+    height: 26px;
+    line-height: 24px;
+}
+
+.option-simple label input:checked + .option {
+    background: $c-royal-blue !important;
+    color: $c-white;
+}
+
+.code-block {
+    border-left: 5px solid $c-desert-storm;
+    background-color: $c-hint-of-red;
+    padding: 3px 9px;
+}
+
+.meta-robots {
+    line-height: 34px;
+}
+
+.meta-robots .group {
+    margin-right: 10px;
+}
+
+.meta-robots .controll {
+    height: 16px;
+    vertical-align: middle;
+    margin-bottom: 0;   
+}

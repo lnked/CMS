@@ -1,0 +1,120 @@
+{% spaceless %}
+
+<label for="input-mail" id="label-mail">Электронная почта</label>
+<input type="email" id="input-mail" aria-describedby="label-mail,error-message-mail" class="textbox" aria-required="true">
+<small aria-live="polite" id="label-mail,error-message-mail">Неправильный формат электронной почты</small>
+
+
+<fieldset role="group" aria-labelledby="user-data">
+    <legend id="user-data">Контакты</legend>
+
+    <label for="input-mail" id="label-mail">Электронная почта</label>
+    <input type="email" id="input-mail" aria-labelledby="label-mail" aria-describedby="danger-mail">
+    <p class="txt-danger" id="danger-mail">Неправильный формат электронной почты</p>
+
+    <label for="input-phone" id="label-phone">Телефон</label>
+    <input type="email" id="input-phone" aria-labelledby="label-phone">
+</fieldset>
+
+<input type="number" pattern="[-+]?[0-9]" name="">
+<input type="number" min="2" max="20" pattern="[2-9]|1[0-9]|20" name="">
+
+<input type="number" min="10" max="20" step="1" name="">
+<input type="email" minlength="6" maxlength="255" name="">
+<input type="text" pattern="\w{2,}" minlength="2" maxlength="20" name="" title="Минимум 2 символа">
+
+<input type="text" pattern="^220[0-9]{3,}$" title="Введите в поле данные поле" name="">
+<input type="text" pattern="220[0-9]{3,}" title="Введите в поле данные поле" name="">
+
+<label for="input-mail" id="label-mail">Электронная почта (обязательно)</label>
+<input type="email" id="input-mail" aria-labelledby="label-mail" aria-required="true">
+
+
+<p class="txt-danger" id="danger-mail">Неправильный формат электронной почты</p>
+<p>
+  <label for="input-mail">Электронная почта</label>
+  <input type="email" id="input-mail" aria-describedby="danger-mail" class="textbox" aria-required="true">
+</p>
+<p>
+  <label for="input-phone">Телефон</label>
+  <input type="email" id="input-phone" class="textbox" aria-required="true">
+</p>
+
+<form action="" method="POST" class="contacts__feedback feedback">
+    <a name="feedback"></a>
+
+    <div class="feedback__title">ОБРАТНАЯ СВЯЗЬ</div>
+    <div class="form__require"><span class="form__star">*</span> обязательно для заполнения</div>
+
+    <input type="hidden" name="_backuri" value="{{ _backuri }}">
+
+    {% if _csrf_token and _csrf_param %}
+    <input type="hidden" name="{{ _csrf_param }}" value="{{ _csrf_token }}">
+    {% endif %}
+
+    {% if _get.act %}
+    <div class="form__response">
+        {% if _get.act == 'success' %}
+            <div class="form__response__success">{{ t('thank.you.your.message.has.been.sent.successfully') }}</div>
+        {% elseif _get.act == 'failed' %}
+            <div class="form__response__warning">{{ t('when.you.send.an.error.occurred') }}</div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <label class="form__input">
+        <span class="form__input__title">Представьтесь <span class="form__star">*</span></span>
+        <input name="name" class="form__input__field {% if errors.name %} is-error{% endif %}" {% if fields.name %} value="{{ fields.name|e }}"{% endif %}>
+
+        {% if errors.name %}
+            <div class="form__input__danger">Не заполнено поле</div>
+        {% endif %}
+    </label>
+
+    <label class="form__input">
+        <span class="form__input__title">Тема сообщения</span>
+        <input name="theme" class="form__input__field {% if errors.theme %} is-error{% endif %}" title="Тема сообщения" {% if fields.theme %} value="{{ fields.theme|e }}"{% endif %}>
+
+        {% if errors.theme %}
+            <div class="form__input__danger">Не заполнено поле</div>
+        {% endif %}
+    </label>
+
+    <div class="form__row">
+        <div class="form__col">
+            <label class="form__input">
+                <span class="form__input__title">Электронная почта <span class="form__star">*</span></span>
+                <input name="email" class="form__input__field {% if errors.email %} is-error{% endif %}" title="Электронная почта" {% if fields.email %} value="{{ fields.email|e }}"{% endif %}>
+
+                {% if errors.email %}
+                    <div class="form__input__danger">Неправильный формат электронной почты</div>
+                {% endif %}
+            </label>
+        </div>
+
+        <div class="form__col">
+            <label class="form__input">
+                <span class="form__input__title">Номер телефона</span>
+                <input name="phone" class="form__input__field {% if errors.phone %} is-error{% endif %} mask-phone" title="Номер телефона" {% if fields.phone %} value="{{ fields.phone|e }}"{% endif %}>
+
+                {% if errors.phone %}
+                    <div class="form__input__danger">Неправильный формат номера телефона</div>
+                {% endif %}
+            </label>
+        </div>
+    </div>
+
+    <label class="form__input">
+        <span class="form__input__title">Текст сообщения <span class="form__star">*</span></span>
+        <textarea name="message" class="form__input__field {% if errors.message %} is-error{% endif %} form__input__field--text" title="Текст сообщения">{% if fields.message %}{{ fields.message|e }}{% endif %}</textarea>
+
+        {% if errors.message %}
+            <div class="form__input__danger">Напишите сообщение</div>
+        {% endif %}
+    </label>
+
+    <div class="form__button">
+        <button type="submit" class="button">ОТПРАВИТЬ</button>
+    </div>
+</form>
+{% endspaceless %}

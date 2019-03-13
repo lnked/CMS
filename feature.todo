@@ -1,0 +1,31 @@
+--
+
+ ☐ Каталог - поля
+
+ - Библиотеки
+ sabre/xml
+ imangazaliev/didom
+ corneltek/pux
+ jane/open-api
+ league/oauth2-server
+ fzaninotto/faker
+ intervention/validation
+ intervention/imagecache
+ phpmailer/phpmailer
+ querypath/querypath
+ jenssegers/date
+
+ composer require amphp/amp
+
+ die(sprintf("Could not create server: %s: [Errno: #%d] %s", $uri, $errno, $errstr));
+
+ db__sys_parameters
+
+Сравнить с https://github.com/matthiasmullie/scrapbook/
+ https://packagist.org/packages/phpfastcache/phpfastcache
+
+Кеширование (мб добавить в твиг или смарти модифаер)
+http://nielse63.github.io/php-image-cache/
+
+API
+http://requests.ryanmccue.info/

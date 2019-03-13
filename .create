@@ -1,0 +1,208 @@
+#!/bin/bash
+
+# Variables
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+SOURCE="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+PATH_ROOT="$( dirname "$SOURCE" )"
+
+read -p 'Локальный домен (*.loc): ' input
+
+DOMAIN="$input.loc"
+CONFIG="$input.conf"
+FOLDER_NAME="$input.dev"
+
+cd $PATH_ROOT
+
+# Проверяем есть ли папка с таким именем
+if [ -d "$FOLDER_NAME" ] ; then
+    echo -e "Папка ${RED}$FOLDER_NAME${NC} существует\n"
+else
+    # Создаем папку
+    #
+    mkdir $FOLDER_NAME
+    echo -e "Создана папка ${GREEN}$FOLDER_NAME${NC} \n"
+
+    # Переходим в папку
+    #
+    cd ./$FOLDER_NAME
+
+    # Копирование файлов
+    #
+    mkdir logs ssl
+    mkdir protected public_html
+    mkdir protected/runtime
+    mkdir protected/runtime/cache protected/runtime/http protected/runtime/logs
+
+    mkdir public_html/upload_dir public_html/static # public_html/exchange
+    mkdir public_html/static/js
+    mkdir public_html/static/css
+    mkdir public_html/static/cache
+
+    cp -r ${SOURCE}/.gitignore ${PATH_ROOT}/$FOLDER_NAME
+    cp -r ${SOURCE}/.editroconfig ${PATH_ROOT}/$FOLDER_NAME
+    cp -r ${SOURCE}/composer.json ${PATH_ROOT}/$FOLDER_NAME
+    cp -r ${SOURCE}/composer.lock ${PATH_ROOT}/$FOLDER_NAME
+
+    cp -r ${SOURCE}/protected/app ${PATH_ROOT}/$FOLDER_NAME/protected
+
+    cp -r ${SOURCE}/protected/.htaccess ${PATH_ROOT}/$FOLDER_NAME/protected
+    cp -r ${SOURCE}/protected/config ${PATH_ROOT}/$FOLDER_NAME/protected
+    cp -r ${SOURCE}/protected/helpers ${PATH_ROOT}/$FOLDER_NAME/protected
+    cp -r ${SOURCE}/protected/modules ${PATH_ROOT}/$FOLDER_NAME/protected
+    cp -r ${SOURCE}/protected/themes ${PATH_ROOT}/$FOLDER_NAME/protected
+
+    cp -r ${SOURCE}/public_html/cp ${PATH_ROOT}/$FOLDER_NAME/public_html/cp
+    cp -r ${SOURCE}/public_html/static ${PATH_ROOT}/$FOLDER_NAME/public_html/static
+
+    cp -r ${SOURCE}/LICENSE ${PATH_ROOT}/$FOLDER_NAME/public_html/license.txt
+    cp -r ${SOURCE}/public_html/.htaccess ${PATH_ROOT}/$FOLDER_NAME/public_html
+    cp -r ${SOURCE}/public_html/define.php ${PATH_ROOT}/$FOLDER_NAME/public_html
+    cp -r ${SOURCE}/public_html/index.php ${PATH_ROOT}/$FOLDER_NAME/public_html
+    cp -r ${SOURCE}/public_html/robots.txt ${PATH_ROOT}/$FOLDER_NAME/public_html
+
+    echo -e "${GREEN}Проект $п успешно создан${NC}"
+
+    cd ${PATH_ROOT}/$FOLDER_NAME/
+
+    sudo chmod -R 777 ssl
+    sudo chmod -R 777 logs
+    sudo chmod -R 777 protected/modules
+    sudo chmod -R 777 protected/runtime
+    sudo chmod -R 777 public_html/static
+    sudo chmod -R 777 public_html/static/cache
+    # sudo chmod -R 777 public_html/exchange
+    sudo chmod -R 777 public_html/upload_dir
+
+    composer install
+
+    # Создаем домен
+    #
+    if [ ! -z "$DOMAIN" ]; then
+        echo -e "Создаем домен: $DOMAIN"
+
+        HOSTS=/private/etc/hosts
+
+        echo ""                                         | sudo tee -ai $HOSTS
+        echo "127.0.0.1                       $DOMAIN"  | sudo tee -ai $HOSTS
+        echo "::1                             $DOMAIN"  | sudo tee -ai $HOSTS
+
+        # Добавляем в апач конфиг
+        #
+        if [ ! -z "$DOMAIN" ]; then
+            echo -e "Добавляем в конфиг для apache: $DOMAIN"
+
+            # VIRTUAL_HOST=/private/etc/apache2/extra/httpd-vhosts.conf
+            VIRTUAL_HOST=/usr/local/etc/httpd/extra/httpd-vhosts.conf
+
+            echo ""                                                                                 | sudo tee -ai $VIRTUAL_HOST
+            echo "<VirtualHost *:8080>"                                                             | sudo tee -ai $VIRTUAL_HOST
+            echo "    ServerName $DOMAIN"                                                           | sudo tee -ai $VIRTUAL_HOST
+            echo "    DocumentRoot /Users/lnked/web/$FOLDER_NAME/public_html"                       | sudo tee -ai $VIRTUAL_HOST
+            # echo "    SSLCertificateFile    /Users/lnked/web/$FOLDER_NAME/ssl/$DOMAIN.crt"              | sudo tee -ai $VIRTUAL_HOST
+            # echo "    SSLCertificateKeyFile /Users/lnked/web/$FOLDER_NAME/ssl/device.key"               | sudo tee -ai $VIRTUAL_HOST
+            echo ""                                                                                 | sudo tee -ai $VIRTUAL_HOST
+            echo "    <Directory /Users/lnked/web/$FOLDER_NAME/public_html>"                        | sudo tee -ai $VIRTUAL_HOST
+            echo "        AddDefaultCharset UTF-8"                                                  | sudo tee -ai $VIRTUAL_HOST
+            echo "        Options Indexes FollowSymLinks"                                           | sudo tee -ai $VIRTUAL_HOST
+            echo "        AllowOverride All"                                                        | sudo tee -ai $VIRTUAL_HOST
+            echo "        Require all granted"                                                      | sudo tee -ai $VIRTUAL_HOST
+            echo "    </Directory>"                                                                 | sudo tee -ai $VIRTUAL_HOST
+            echo ""                                                                                 | sudo tee -ai $VIRTUAL_HOST
+            echo "    ErrorLog /Users/lnked/web/$FOLDER_NAME/logs/apache.error.log"                 | sudo tee -ai $VIRTUAL_HOST
+            echo "    CustomLog /Users/lnked/web/$FOLDER_NAME/logs/apache.access.log common"        | sudo tee -ai $VIRTUAL_HOST
+            echo "</VirtualHost>"                                                                   | sudo tee -ai $VIRTUAL_HOST
+        fi
+    fi
+
+    if [ ! -f "/usr/local/etc/nginx/sites-available/$CONFIG" ]; then
+
+cat <<EOT >> /usr/local/etc/nginx/sites-available/$CONFIG
+server {
+    listen      80;
+    # listen      80 default_server;
+    # listen      443 ssl;
+
+    server_name $DOMAIN;
+    server_name_in_redirect off;
+
+    root        /Users/lnked/web/$FOLDER_NAME/public_html;
+    index       index.php index.html index.htm;
+
+    # ssl on;
+    # ssl_certificate     /Users/lnked/web/$FOLDER_NAME/ssl/$DOMAIN.crt;
+    # ssl_certificate_key /Users/lnked/web/$FOLDER_NAME/ssl/device.key;
+
+    access_log  /Users/lnked/web/$FOLDER_NAME/logs/access.log main;
+    error_log   /Users/lnked/web/$FOLDER_NAME/logs/error.log error;
+
+    charset     utf-8;
+
+    # if (\$ssl_protocol = "") {
+    #     rewrite ^/(.*) https://\$server_name/\$1 permanent;
+    # }
+
+    location ~* \.(jpe?g|png|gif|bmp|json|ico|svg|tif|tiff|css|js|htm|html|ttf|otf|webp|woff|woff2|txt|csv|rtf|doc|docx|xls|xlsx|ppt|pptx|odf|odp|ods|odt|pdf|psd|ai|eot|eps|ps|zip|tar|tgz|gz|rar|bz2|7z|aac|m4a|mp3|mp4|ogg|wav|wma|3gp|avi|flv|m4v|mkv|mov|mpeg|mpg|wmv|exe|iso|dmg|xml|swf)$ {
+        root /Users/lnked/web/$FOLDER_NAME/public_html;
+        index index.php;
+        add_header  Last-Modified: \$date_gmt;
+        access_log  off;
+        expires 60d;
+        error_page 404 = @prox;
+    }
+
+    location @prox {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_redirect off;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        client_max_body_size 100m;
+        client_body_buffer_size 128k;
+        proxy_connect_timeout 90;
+        proxy_send_timeout 90;
+        proxy_read_timeout 90;
+        proxy_buffer_size 32k;
+        proxy_buffers 32 32k;
+        proxy_busy_buffers_size 64k;
+        proxy_temp_file_write_size 64k;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_redirect off;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        client_max_body_size 100m;
+        client_body_buffer_size 128k;
+        proxy_connect_timeout 90;
+        proxy_send_timeout 90;
+        proxy_read_timeout 90;
+        proxy_buffer_size 32k;
+        proxy_buffers 32 32k;
+        proxy_busy_buffers_size 64k;
+        proxy_temp_file_write_size 64k;
+    }
+
+    location ~ /\.ht {
+        deny  all;
+    }
+}
+EOT
+
+    echo -e "Создан файл конфигурации /usr/local/etc/nginx/sites-available/$CONFIG\n"
+
+    fi
+fi
+
+# ${SOURCE}/.certificate $DOMAIN
+
+sudo apachectl restart
+sudo brew services restart nginx
+
+dscacheutil -flushcache
+
+echo -e "${GREEN}Установка завершена, перейти на домен http://$DOMAIN${NC} \n"

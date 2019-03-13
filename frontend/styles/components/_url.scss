@@ -1,0 +1,99 @@
+.url {
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+}
+
+.url__title, .url__system {
+    clear: both;
+    position: relative;
+}
+
+.url__title {
+    margin-bottom: 6px;
+}
+
+.url__lock {
+    width: 34px;
+    width: 3.4rem;
+    height: 34px;
+    height: 3.4rem;
+    line-height: 34px;
+    line-height: 3.4rem;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.url__lock__switch {
+    width: 24px;
+    width: 2.4rem;
+    height: 24px;
+    height: 2.4rem;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 18px;
+    line-height: 1.8rem;
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #F96F5B;
+}
+
+.url__lock__switch .zmdi {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.url__lock__switch, .url__lock__switch.off {
+    color: #F96F5B;
+    border-color: #F96F5B;
+}
+
+.url__lock__switch .is-on, .url__lock__switch.off .is-on {
+    display: none;
+}
+
+.url__lock__switch .is-off, .url__lock__switch.off .is-off {
+    display: inline-block;
+}
+
+.url__lock__switch.on {
+    color: #4caf50;
+    border-color: #4caf50;
+}
+
+.url__lock__switch.on .is-on {
+    display: inline-block;
+}
+
+.url__lock__switch.on .is-off {
+    display: none;
+}
+
+.url__lock__switch:before, .url__lock__switch:after {
+    width: 1px;
+    display: none;
+    height: 40px;
+    background-color: #A7AEBB;
+    background-color: #F96F5B;
+    content: "";
+    position: absolute;
+    left: 8px;
+}
+
+.url__lock__switch:before {
+    bottom: 100%;
+    margin-bottom: 2px;
+}
+
+.url__lock__switch:after {
+    top: 100%;
+    margin-top: 2px;
+}

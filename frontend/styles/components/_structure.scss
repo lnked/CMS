@@ -1,0 +1,220 @@
+.structure {
+    list-style-type: none;
+}
+
+.structure__url {
+    font-size: 0;
+    line-height: 0;
+    height: 34px;
+    height: 3.4rem;
+}
+
+.structure__url__link {
+    color: #557DE2;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+.structure__url__link__text {
+    display: block;
+}
+
+.structure__url__link__input {
+    width: 400px;
+    display: none;
+}
+
+.structure__url__link, .structure__url__button {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 34px;
+    line-height: 3.4rem;
+}
+
+.structure__url__button {
+    margin-left: 10px;
+    margin-left: 1rem;
+}
+
+.structure__url__button .button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.structure__plus, .structure__meta {
+    height: 22px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 0;
+    line-height: 22px;
+}
+
+.structure__plus .label, .structure__meta .label {
+    vertical-align: middle;
+}
+
+.structure__plus__add {
+    position: relative;
+    z-index: 1000;
+}
+
+.structure__flags, .structure__icons {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 0;
+    padding: 0;
+    opacity: 0.4;
+}
+
+.structure__flags {
+    margin-right: 5px;
+}
+
+.structure__flags .badge {
+    height: 18px;
+    line-height: 18px;
+    font-size: 11px;
+    font-size: 1.1rem;
+    vertical-align: top;
+}
+
+.structure__icons {
+    line-height: 18px;
+}
+
+.structure__icons .zmdi {
+    color: #2c3e50;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin: 0 5px;
+    position: relative;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+}
+
+.structure__icons .zmdi:hover {
+    color: #3498db;
+}
+
+.structure__icons .zmdi-eye-off {
+    color: #7f8c8d;
+}
+
+.structure__icons .zmdi-edit:hover {
+    color: #f39c12;
+}
+
+.structure__icons .zmdi-delete:hover {
+    color: #c0392b;
+}
+
+.structure__link {
+    height: 22px;
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 22px;
+    display: inline-block;
+    font-weight: 400;
+    color: #121212;
+    vertical-align: middle;
+}
+
+.structure__control {
+    min-width: 30px;
+    height: 34px;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    white-space: nowrap;
+    margin-left: 2px;
+    margin-top: -17px;
+    z-index: 1099;
+    color: #fff;
+    font-size: 0;
+    line-height: 34px;
+    padding: 0 10px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+}
+
+.structure__control.animate {
+    opacity: 0;
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.structure__control:before {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    margin-top: -8px;
+    content: "";
+    z-index: 1;
+    border: 8px solid;
+    border-color: transparent #000 transparent transparent;
+    opacity: 0.8;
+}
+
+.structure__control__icon {
+    color: #fff;
+    margin: -2px 7px 0;
+    font-size: 13px;
+    font-size: 1.3rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.structure a {
+    text-decoration: none;
+}
+
+.structure ul {
+    margin: 0 25px;
+    clear: both;
+}
+
+.structure li {
+    margin: 0 0 10px;
+    clear: both;
+    float: left;
+}
+
+.structure li li:last-child {
+    margin-bottom: 0;
+}
+
+.structure li ul {
+    margin: 30px 25px 0;
+}
+
+.structure li .link {
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    color: #2c3e50;
+    margin-right: 3px;
+}
+
+.structure li .link:hover {
+    color: #7f8c8d;
+}
+
+.structure li .current {
+    color: #000;
+    text-decoration: none;
+}

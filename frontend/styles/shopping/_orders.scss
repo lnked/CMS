@@ -1,0 +1,48 @@
+.orders {
+    clear: both;
+    margin-bottom: 15px;
+}
+
+.order-item {
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    &__row {
+        clear: both;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__column {
+        font-size: 1.4rem;
+        line-height: 1.6;
+
+        &--name {
+            color: #888;
+            width: 260px;
+        }
+
+        p {
+            margin-bottom: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__product {
+        margin-bottom: 5px;
+    }
+
+    &__add-date {
+        color: #888;
+        font-size: 1.1rem;
+    }
+}

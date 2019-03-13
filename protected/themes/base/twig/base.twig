@@ -1,0 +1,31 @@
+{% extends "layouts/base.twig" %}
+
+{% spaceless %}
+
+	{% block header %}
+		{% include 'components/header.twig' only %}
+	{% endblock %}
+
+	{% block sidebar %}
+		{% include 'components/sidebar.twig' with _sitemenu %}
+	{% endblock %}
+
+	{% block breadcrumbs %}
+		{% include 'components/breadcrumbs.twig' with _breadcrumbs %}
+	{% endblock %}
+
+	{% block content %}
+
+	    {% if _page.name %}
+	        <h2>{{ _page.name }}</h2>
+	    {% endif %}
+
+	    {{ _page.content|raw }}
+
+	{% endblock %}
+
+	{% block footer %}
+	    {% include 'components/footer.twig' only %}
+	{% endblock %}
+
+{% endspaceless %}

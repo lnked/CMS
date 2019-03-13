@@ -1,0 +1,103 @@
+.auth-wrapper {
+    width: 420px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -130px -210px;
+}
+
+.auth-form {
+    position: relative;
+    background: #2980b9;
+    border: 0;
+    color: $c-white;
+    box-shadow: 0 12px 6px -6px rgba(0,0,0,.2);
+    padding: 15px 20px;
+}
+
+.auth-form .celebro-cms {
+    height: 36px;
+    position: absolute;
+    left: 0;
+    top: -36px;
+    font-size: 1.6rem;
+    line-height: 36px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $c-white;
+    float: right;
+    background: #3C454F;
+    padding: 0 20px;
+}
+
+.auth-form .celebro-cms span {
+    color: #0cf;
+}
+
+.auth-form h1 {
+    font-size: 1.8rem;
+    line-height: 18px;
+    font-weight: 400;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.auth-form .input {
+    width: 100%;
+    clear: both;
+    color: #353535;
+    font-size: 1.3rem;
+    border: 2px solid $c-gainsboro;
+    background: $c-white;
+    box-sizing: border-box;
+    margin: 0 0 13px;
+    padding: 8px 14px;
+}
+
+.auth-form .input:focus {
+    border-color: $c-cream-blulee;
+}
+
+.auth-form .controll {
+    float: left;
+}
+
+.auth-form .controll__text {
+    color: $c-white;
+}
+
+.auth-form .buttons .checkbox-conteiner {
+    padding: 6px 0;
+}
+
+.auth-form .buttons .button {
+    float: right;
+    clear: none;
+    margin: 0;
+}
+
+.auth-form .buttons .button {
+    box-sizing: border-box;
+    background: $c-solitude;
+    border: 0 none;
+    color: #243140;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3rem;
+    height: 32px;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 1px rgba(255,255,255,0.2);
+    vertical-align: top;
+    padding: 0 16px;
+}
+
+.auth-form .buttons .button:hover {
+    background: #DCDFE7;
+    color: #243140;
+}
+
+.auth-form .buttons .button:active,.button-dropdown:hover > .toggle,.button-dropdown.open > .toggle,.button.active {
+    background: #CDD1DC;
+    color: #1D2938;
+}

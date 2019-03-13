@@ -1,0 +1,66 @@
+.profile {
+	clear: both;
+
+	&__label {
+		clear: both;
+		display: block;
+		margin-bottom: 10px;
+
+		&__name {
+			display: block;
+			font-size: 1.4rem;
+			margin-bottom: 5px;
+		}
+
+		&__input {
+
+		}
+	}
+
+	&__title {
+		font-size: 1.6rem;
+		margin-bottom: 10px;
+	}
+
+	&__cols {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		&__item {
+			flex-grow: 1;
+
+			&--low {
+				flex-grow: 0;
+			}
+
+			&:not(:last-child) {
+				padding-right: 5px;
+			}
+
+			&:not(:first-child) {
+				padding-left: 5px;
+			}
+		}
+	}
+
+	&__group {
+		clear: both;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		&__item {
+			clear: both;
+
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+
+		&--cols {}
+
+		&--rows {}
+	}
+}

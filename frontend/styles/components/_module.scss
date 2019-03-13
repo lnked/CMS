@@ -1,0 +1,56 @@
+.module {
+    width: 100%;
+    color: $c-table-color;
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+    border: 1px solid $c-table-border;
+    background-color: $c-table-background;
+
+    &__th,
+    &__td {
+        padding: 0;
+        outline: 0 none;
+    }
+
+    &__th {
+        padding: 10px;
+        color: $c-white;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.3rem;
+        letter-spacing: .05ex;
+        vertical-align: middle;
+        border: 1px solid $dark-gray;
+        background-color: $dark-gray;
+    }
+
+    &__td {
+        padding: 8px 10px;
+        border: 1px solid $c-table-col-border;
+        
+        &_strong {
+            padding: 9px 10px 7px;
+            line-height: 21px;
+            vertical-align: middle;
+            color: $c-table-strong-color;
+            background-color: $c-table-strong-background;
+        }
+
+        &_redactor {
+            padding: 0;
+        }
+
+        .redactor-editor {
+            border: 0 !important;
+        }
+    }
+
+    &__tr:nth-child(2n) &__td {
+        color: $c-table-highlight-color;
+        background-color: $c-table-highlight-background;
+    }
+}

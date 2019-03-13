@@ -1,0 +1,16 @@
+{
+  "/bundle.js": "/bundle.min.js",
+  "/client.css": "/1.1d8.css",
+  "/client.js": "/client.min.js",
+  "/startup.js": "/startup.js",
+  "/1.1d8.css.br": "/1.1d8.css.br",
+  "/1.1d8.css.gz": "/1.1d8.css.gz",
+  "/bundle.min.js.br": "/bundle.min.js.br",
+  "/bundle.min.js.gz": "/bundle.min.js.gz",
+  "/client.min.js.br": "/client.min.js.br",
+  "/client.min.js.gz": "/client.min.js.gz",
+  "/client.scss": "/client.scss.d.ts",
+  "/startup.js.br": "/startup.js.br",
+  "/startup.js.gz": "/startup.js.gz",
+  "/styles.scss": "/styles.scss.d.ts"
+}

@@ -1,0 +1,52 @@
+@media screen and (min-width: 1281px) {}
+@media only screen and (max-width: 1280px) {}
+@media only screen and (max-width: 960px) {}
+@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 320px) {}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
+    .chosen-rtl .chosen-search input[type="text"],
+    .chosen-container-single .chosen-single abbr,
+    .chosen-container-single .chosen-single div b,
+    .chosen-container-single .chosen-search input[type="text"],
+    .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+    .chosen-container .chosen-results-scroll-down span,
+    .chosen-container .chosen-results-scroll-up span {
+        background-image: url(../images/chosen-sprite@2x.png) !important;
+        background-repeat: no-repeat !important;
+        background-size: 52px 37px !important;
+    }
+
+    .loading {
+        background-image: url(../images/preloader-32.gif);
+        background-size: 16px 16px;
+    };
+}
+
+@media only screen and (max-width : 479px) {
+    body {
+        min-width: 100%;
+    }
+
+    .content-header h2 {
+        font-size: 0;
+    }
+
+    .button-clear .tx {
+        font-size: 0;
+    }
+
+    .button-clear .zmdi {
+        margin: 0;
+    }
+
+    .auth-wrapper {
+        width: 100%;
+        padding: 0 15px;
+        position: relative;
+        left: auto;
+        margin: -130px 0 0 !important;
+        box-sizing: border-box;
+    };
+}

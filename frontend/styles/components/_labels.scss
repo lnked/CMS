@@ -1,0 +1,169 @@
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+    color: $c-white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+
+.badge:empty {
+    display: none;
+}
+
+.btn .badge {
+    position: relative;
+    top: -1px;
+}
+
+a.badge:hover,a.badge:focus {
+    color: $c-white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.badge, .label {
+    font-weight: bold;
+    background-color: #a7abaf;
+    box-sizing: content-box;
+}
+
+.badge.bg-light,.badge.bg-white,.label.bg-light,.label.bg-white {
+    color: rgba(0,0,0,0.87);
+    text-shadow: none;
+}
+
+.label {
+    padding: .35em .6em;
+}
+
+.badge {
+    padding: 3px 6px;
+}
+
+.badge.up {
+    position: relative;
+    top: -10px;
+    margin: 0 -0.5em;
+}
+
+.badge-lg {
+    padding: 5px 9px;
+    font-size: 1.6rem;
+    border-radius: 20px;
+}
+
+.badge-sm {
+    padding: 2px 5px;
+}
+
+.badge-xs {
+    padding: 1px 4px;
+}
+
+.label-lg {
+    padding: 5px 9px !important;
+    font-size: 1.6rem !important;
+}
+
+.label-sm {
+    padding: 2px 5px !important;
+}
+
+.label-xs {
+    padding: 1px 4px !important;
+}
+
+.badge-white {
+    padding: 2px 6px;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+.badge-black {
+    color: inherit;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+.label {
+    display: inline;
+    padding: 0.2em 0.6em 0.2em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    color: $c-white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+a.label:hover,a.label:focus {
+    color: $c-white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.label:empty {
+    display: none;
+}
+
+.btn .label {
+    position: relative;
+    top: -1px;
+}
+
+.label-default {
+    background-color: #777;
+}
+
+.label-default[href]:hover,.label-default[href]:focus {
+    background-color: #5e5e5e;
+}
+
+.label-primary {
+    background-color: #337ab7;
+}
+
+.label-primary[href]:hover,.label-primary[href]:focus {
+    background-color: #286090;
+}
+
+.label-success {
+    background-color: #5cb85c;
+}
+
+.label-success[href]:hover,.label-success[href]:focus {
+    background-color: #449d44;
+}
+
+.label-info {
+    background-color: #5bc0de;
+}
+
+.label-info[href]:hover,.label-info[href]:focus {
+    background-color: #31b0d5;
+}
+
+.label-warning {
+    background-color: #f0ad4e;
+}
+
+.label-warning[href]:hover,.label-warning[href]:focus {
+    background-color: #ec971f;
+}
+
+.label-danger {
+    background-color: #d9534f;
+}
+
+.label-danger[href]:hover,.label-danger[href]:focus {
+    background-color: #c9302c;
+}

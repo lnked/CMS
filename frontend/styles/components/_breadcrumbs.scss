@@ -1,0 +1,60 @@
+.breadcrumbs {
+    overflow: hidden;
+    line-height: 33px;
+    margin-bottom: 10px;
+    background-color: #e9ebed;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.breadcrumbs > li { float: left; }
+.breadcrumbs .current { color: $c-eclipse; padding: 0 13px 0 33px; }
+.breadcrumbs .current:hover { background: rgba(0, 0, 0, 0); }
+.breadcrumb { display: block; overflow: hidden; padding: 0 9px 0 33px; color: #32425C; position: relative; }
+.breadcrumb:hover { background: #f2f2f2; text-decoration: none; }
+
+.breadcrumb:before,
+.breadcrumb:after { -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-right-colors: none; -moz-border-top-colors: none; border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) $c-white; border-image: none; border-style: outset outset outset solid; border-width: 33px; content: ""; height: 0; left: -13px; pointer-events: none; position: absolute; top: -16px; width: 0; }
+.breadcrumb:after { border-left-color: #E9EBED; left: -16px; }
+
+.breadcrumbs li:hover + li > .breadcrumb:before { border-bottom: 33px solid #E9EBED; border-top: 33px solid #E9EBED; }
+.breadcrumbs li:hover + li > .breadcrumb:after { border-left-color: #f2f2f2; }
+.breadcrumbs li:first-child > .breadcrumb { padding-left: 13px; }
+.breadcrumbs li:first-child > .breadcrumb:before, li:first-child > .breadcrumb:after { display: none; }
+
+.breadcrumb.nohover { cursor: default; }
+.breadcrumb.nohover:hover .breadcrumb:before { border-left-color: #E9EBED; }
+
+.bread-crumbs {
+    clear: both;
+    padding: 0 15px;
+    height: 45px;
+    font-size: 0;
+    background-color: #f8f8f9;
+    border-bottom: 1px solid #d4d8d8;
+}
+
+.bread-crumbs__item {
+    font-size: 1.5rem;
+    line-height: 45px;
+    display: inline-block;
+    color: #bec3cb;
+}
+
+.bread-crumbs__item:not(:last-child):after {
+    content: "→";
+    color: #bec2c7;
+    font-size: 1.3rem;
+    margin: -2px 8px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bread-crumbs__item__link {
+    color: #979ebe;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.bread-crumbs__item__link .zmdi {
+    font-size: 1.5rem;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ _page.lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+
+    {{ compress({
+        media : 'all',
+        source : [
+            { 'file' : '/css/error-page.css' }
+        ]
+    }) }}
+
+    <title>{{ _meta.title }}</title>
+</head>
+
+<body class="error-page">
+
+    <div class="error-page__wrapper">
+
+        <h1 class="error-page__title">{{ _page.name }}</h1>
+
+        <form action="/search" class="error-page__search">
+            <input name="q" placeholder="Найти на сайте" class="error-page__search__input">
+            <button type="submit" class="error-page__search__button">Поиск</button>
+        </form>
+
+        <a href="/" class="error-page__goto">&larr; <span class="error-page__goto__label">На главную</span></a>
+
+        <ul class="error-page__sitemap">
+            {% include 'core/sitemap.twig' with {
+                'tree': _sitemap
+            } %}
+        </ul>
+    </div>
+
+</body>
+</html>

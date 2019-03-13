@@ -1,0 +1,37 @@
+.loading {
+    width: 18px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    display: block;
+    margin: 0;
+    background: $c-white url(../images/preloader-16.gif) no-repeat;
+}
+
+.loader {
+    width: 160px;
+    font-size: 0;
+    display: none;
+    position: fixed;
+    top: -1px;
+    left: 50%;
+    margin-left: -80px;
+    z-index: 200;
+    padding: 5px 10px;
+    background-color: #fbe8a4;
+    border: 1px solid #e6c963;
+}
+
+.loader img {
+    float: left;
+}
+
+.loader span {
+    height: 32px;
+    float: left;
+    display: block;
+    padding: 0 0 0 7px;
+    font-size: 1.3rem;
+    line-height: 32px;
+}

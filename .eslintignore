@@ -1,0 +1,13 @@
+webpack/*
+typings/*
+coverage/
+node_modules/
+**/*.d.ts
+**/*.scss.d.ts
+!**/__tests__/**/*.js
+
+# tmp
+dist/*
+logs/
+.cache/
+.awcache/

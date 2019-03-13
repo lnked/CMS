@@ -1,0 +1,7 @@
+{% spaceless %}
+{% if _get.act == 'success' %}
+    <div class="cart__success">Ваша заказ принят</div>
+{% elseif _get.act == 'failed' %}
+    <div class="cart__failed">Не удалось отправить заказ, произошла ошибка!</div>
+{% endif %}
+{% endspaceless %}

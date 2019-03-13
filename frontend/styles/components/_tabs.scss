@@ -1,0 +1,30 @@
+.tabs {
+    padding: 0 15px;
+    height: 45px;
+    border-bottom: 1px solid #d4d8d8;
+
+	&__list {
+		letter-spacing: normal;
+
+		&__item {
+		    display: inline-block;
+		    margin-right: 15px;
+		}
+
+		&__link {
+		    height: 45px;
+		    padding: 0;
+		    display: block;
+		    color: #8991b3;
+    		font-size: 1.4rem;
+		    text-decoration: none;
+		    line-height: 44px;
+		    box-sizing: border-box;
+
+		    &_current {
+			    color: #24272f;
+			    border-bottom: 3px solid $c-royal-blue;
+			}
+		}
+	}
+}

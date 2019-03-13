@@ -1,0 +1,183 @@
+.box {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+    background-color: $c-white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+
+    @media (max-width: 375px) {
+        width: 100%;
+    }
+}
+
+.cms-name {
+    color: $c-white;
+    padding: 12px 20px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    background-color: $c-login-blue;
+}
+
+.login-variant {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    &__item {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+    }
+}
+
+.error {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    width: 100%;
+    transform: translate3d(0, 100%, 0);
+    color: $c-white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    background-color: $c-amaranth;
+    z-index: 5;
+    opacity: 0;
+    transition: transform $a-time $a-func, opacity $a-time $a-func;
+
+    &--show {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+}
+
+.title {
+    color: $c-black;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.row,
+.last_row {
+    width: 100%;
+    clear: both;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.last_row {
+    margin-bottom: 20px;
+}
+
+.sub_title {
+    color: $c-secondary;
+    font-size: 1.2rem;
+    line-height: 1.33;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    color: $c-secondary;
+}
+
+.link {
+    color: $c-login-blue;
+    font-size: 1.2rem;
+    line-height: 1.33;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.input {
+    width: 100%;
+    height: 38px;
+    padding: 0 15px;
+    color: $c-white;
+    font-size: 1.3rem;
+    font-weight: 400;
+    user-select: text;
+    font-family: $font-family;
+    background-color: $c-white;
+    border: 1px solid $c-pattern-blue;
+    transition: border-color $a-time, box-shadow $a-time;
+
+    &.error {
+        background: rgba(255, 0, 0, 0.1);
+        border-color: rgb(255, 0, 0);
+        border-color: rgba(255, 0, 0, 0.5);
+    }
+    
+    &:disabled {
+        opacity: 0.4;
+        cursor: default;
+    }
+
+    &:-webkit-autofill {
+        color: #333 !important;
+        -webkit-box-shadow: 0 0 0px 1000px $c-white inset !important;
+    }
+
+    &:hover {
+        border-color: darken($c-pattern-blue, 10%);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $c-login-blue;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.2) !important;
+
+        &, &:-webkit-autofill {
+            color: #333 !important;
+            background-color: $c-white !important;
+        -webkit-box-shadow: 0 0 0px 1000px $c-white inset !important;
+        }
+    }
+
+    &::-ms-clear {
+        display: none;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+        appearance: none;
+    }
+}
+
+.button {
+    width: auto;
+    min-width: 130px;
+    height: 38px;
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0 30px;
+    cursor: pointer;
+    text-align: center;
+    background-color: $c-white;
+    border: 1px solid $c-login-blue;
+    transition: background-color $a-time, color $a-time;
+    
+    &:hover {
+        color: $c-white;
+        background-color: $c-login-blue;
+    }
+}

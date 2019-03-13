@@ -1,0 +1,76 @@
+{% spaceless %}
+
+<form method="POST" action="" class="cart">
+    <a name="confirm"></a>
+
+    <input type="hidden" name="_backuri" value="{{ _backuri }}">
+    <input type="hidden" name="_action" value="confirm">
+
+    {% if _csrf_token and _csrf_param %}
+    <input type="hidden" name="{{ _csrf_param }}" value="{{ _csrf_token }}">
+    {% endif %}
+
+    <div class="cart__item cart__item--header">
+        <div class="cart__item__group cart__item__group--header">
+            Наименование
+        </div>
+
+        <div class="cart__item__count cart__item__count--confirm cart__item__count--header">
+            Количество
+        </div>
+
+        <div class="cart__item__total cart__item__total--long cart__item__total--header">
+            Стоимость
+        </div>
+    </div>
+
+    {%- for product in items -%}
+    <div class="cart__item cart__item--confirm">
+        <div class="cart__item__group cart__item__group--confirm">
+            <div class="cart__item__group__name">{{ product.name }}</div>
+            <div class="cart__item__group__description">{{ product.description }}</div>
+        </div>
+
+        <div class="cart__item__count cart__item__count--confirm">
+            {{ product.count }}
+        </div>
+
+        <div class="cart__item__total cart__item__total--long cart__item__total--confirm">
+            <span class="cart__item__total__price">{{ money(product.price * _session.cart.items[product.id].count) }}</span>&nbsp;<span class="ruble">p</span>
+        </div>
+    </div>
+    {%- endfor -%}
+
+    <footer class="cart__footer">
+        <div class="cart__footer__total">
+            <span class="cart__footer__total__label">итого:</span>
+            <span class="cart__footer__total__price">
+                <span class="cart__footer__total__price__amount j-cart-amount">{{ money(_session.cart.amount) }}</span>&nbsp;<span class="ruble">p</span>
+            </span>
+        </div>
+
+        <div class="cart__footer__button">
+            <button type="submit" class="button">Подтвердить заказ</button>
+        </div>
+    </footer>
+
+</form>
+
+{% if steps %}
+<nav class="steps">
+    <ol class="steps__list">
+        {% for step in steps %}
+            {% if step.hide is empty %}
+                <li class="steps__item{% if current >= loop.index or step.passed %} is-passed{% endif %}">
+                    {% if current >= loop.index or step.passed %}
+                        <a href="/{{ module_root }}/{{ step.slug }}" class="steps__item__name">{{ step.name }}</a>
+                    {% else %}
+                        <span class="steps__item__name">{{ step.name }}</span>
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+{% endif %}
+{% endspaceless %}

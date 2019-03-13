@@ -1,0 +1,49 @@
+.inner-copy {
+    cursor:pointer;
+    position:relative;
+    color:$c-royal-blue;
+    border-bottom:1px dotted;
+}
+
+.inner-copy:not(:last-child) {
+    margin-right:14px;
+}
+
+.inner-copy:before {
+    content:"Copied!";
+    font-size:13px;
+    font-size:1.3rem;
+    line-height:30px;
+    padding:0 5px;
+    position:absolute;
+    left:50%;
+    top:100%;
+    display:none;
+    z-index:100;
+    margin-top:7px;
+    color:#fff;
+    -webkit-border-radius:1px;
+    border-radius:1px;
+    -webkit-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    transform:translateX(-50%);
+    background-color:$c-royal-blue;
+}
+
+.inner-copy:after {
+    content:"";
+    position:absolute;
+    left:50%;
+    top:100%;
+    display:none;
+    z-index:100;
+    margin-top:3px;
+    margin-left:-6px;
+    border-bottom:4px solid $c-royal-blue;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+}
+
+.inner-copy.copied:before,.inner-copy.copied:after {
+    display: block;
+}

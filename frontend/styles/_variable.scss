@@ -1,0 +1,155 @@
+////////////
+// Animation //
+////////////
+$a-func:                        ease;
+$a-time:                        .5s;
+$a-micro-time:                  .2s;
+$a-long-time:                   .9s;
+
+////////////
+// Fonts //
+////////////
+$font-base:                     10px;
+$font-family:                   'Open Sans', sans-serif;
+
+$c-lighten-percent:             10% !default;
+
+////////////
+// COLORS //
+////////////
+$catalog-green:             #61b038;
+$catalog-grey:              #bdc6cc;
+
+$c-main-lime:				#95c527;
+$c-main-red:				#b20100;
+$c-main-grey:				#737578;
+$c-light-grey:				#f2f2f2;
+
+$c-white:                   #fff;
+$c-black:                   #000;
+$c-vulcan:                  #383a3e;
+$c-bunker:                  #23262a;
+$c-gainsboro:               #dedede;
+$c-emerald:                 #53e591;
+$c-mantis:                  #8BC34A;
+$c-dark-gray:               #AAAAAA;
+$c-cornflower-blue:         #4588ed;
+$c-royal-blue:              #557DE2;
+$c-pattern-blue:            #c8d7e1;
+$c-dodger-blue:             #0099FF;
+$c-whisper:                 #e4e4e4;
+$c-light-gray:              #d4d4d4;
+$c-very-light-gray:         #cccccc;
+$c-summer-sky:              #3498DB;
+$c-eclipse:                 #404040;
+$c-cinnabar:                #e74c3c;
+$c-solitude:                #E5E7ED;
+$c-cream-blulee:            #ffdf93;
+$c-atomic-tangerine:        #FF8A65;
+$c-hint-of-red:             #F5F2F0;
+$c-desert-storm:            #E7E5E3;
+$c-tahiti-gold:             #eb7126;
+$c-link-blue:               #5c9df5;
+
+$c-steel:                   #f3f3f3;
+$c-login-blue:              #2d3c97;
+$c-login-border:            #dcdcdc;
+
+$c-amaranth:                #e2394e;
+
+$c-secondary:               #474747;
+
+$c-blue:                    #557de2 !default;
+$c-raven:                   #656d79 !default;
+$c-astronaut:               #3f536e !default;
+$c-dodger-blue:             #0093ee !default;
+$c-silver-tree:             #57BB8A !default;
+$c-tower-grey:              #9c9e9d !default;
+
+// Table
+$catalog-error:             #CC0000;
+$catalog-header:            #A7AEBB;
+$catalog-header-color:      #fefefe;
+$catalog-sub-header:        #e4e6ea;
+$catalog-sub-border:        #bdc6cc;
+$catalog-bot-border:        #dadada;
+$catalog-border:            #DCDCDC;
+$catalog-background:        #f0f0f0;
+$catalog-column-bg:         #fff;
+$catalog-column-hover:      #f2fbff;
+$catalog-column-color:      #333;
+$catalog-input-height:      30px;
+
+$c-table-color:             #2c3e50;
+$c-table-border:            #eef0f6;
+$c-table-background:        #fff;
+$c-table-col-border:        #e4e6ea;
+
+$c-table-strong-color:      #5C626F;
+$c-table-strong-background: #F5F5F5;
+
+$c-table-highlight-color:   #333;
+$c-table-highlight-background: #f7f7f7;
+
+// Red
+$c-red-orange:              #f44336;
+$c-amour:                   #ffebee;
+$c-we-peep:                 #ffcdd2;
+$c-sweet-pink:              #ef9a9a;
+$c-geraldine:               #e57373;
+$c-sunset-orange:           #ef5350;
+
+// CMS
+$c-text:                    #121212;
+
+$c-select-color:            #fff;
+$c-select-background:       #097dc5;
+
+$c-placeholder-color:       #000;
+$c-placeholder-opacity:     .5;
+
+$c-body-background:         #fff !default;
+
+$error                      : #f00;
+$border                     : $c-pattern-blue;
+
+$decorate                   : #F96F5B;
+
+$dark-green                 : #4caf50;
+
+$dark-gray                  : #A7AEBB;
+
+$background                 : #F5F5F5;
+
+// Colors
+$red                        : #d80000;
+$red-dark                   : #b30839;
+$orange-light               : #ffb400;
+$orange-dark                : #f5a623;
+$green-light                : #50e3c2;
+$brown                      : #b34d02;
+$pink                       : #df4379;
+
+$red                        : #DA291C;
+$green                      : #046A38;
+
+$gray                       : #e4e6ea;
+
+// SIZE
+
+$min_width:                     400;
+$max_width:                     800;
+
+$min_font:                      12;
+$max_font:                      24;
+
+$layout-width:                  1260px;
+$layout-margin:                 10px;
+
+$header-height:                 159px;
+
+$footer-margin:                 20px;
+$footer-height:                 100px;
+
+$sidebar-width:                 200px;
+$sidebar-margin:                20px;

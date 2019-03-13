@@ -1,0 +1,26 @@
+{% spaceless %}
+<div class="payment">
+    {% if order.number %}
+    <div class="payment__number">Номер заказа: <strong>{{ order.number }}</strong></div>
+    {% endif %}
+
+    {% if order.payment_type == 'online_card' %}
+    <div class="payment__failed">Внимание! Оплата не была совершена.</div>
+    {% endif %}
+
+    <div class="payment__description">
+        {% if order.payment_type == 'online_card' %}
+        <p>Ваш платеж по каким то причинам не прошел, попробуйте оплатить еще раз или свяжитесь со службой поддержки:</p>
+        {% else %}
+        <p>Ваш заказ по каким то причинам не прошел, попробуйте повторить заказ еще раз или свяжитесь со службой поддержки:</p>
+        {% endif %}
+        <p>E-mail: <a href="mailto:support@eat-trip.ru">support@eat-trip.ru</a></p>
+    </div>
+
+    {#
+    {% if order.payment_type === 'online_card' %}
+    <a href="" class="button">Повторить платеж</a>
+    {% endif %}
+    #}
+</div>
+{% endspaceless %}
