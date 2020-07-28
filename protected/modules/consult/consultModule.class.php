@@ -83,7 +83,7 @@ final class consultModule extends \Fastest\Core\Modules\Module
             return $this->errorPage;
         }
 
-        if (!$this->checkRECAPTCHA($_POST, '6LftAEYUAAAAAMDp6SSB3MwATgQpQGZMAn6xpM9t'))
+        if (!$this->checkRECAPTCHA($_POST, GOOGLE_RECAPTCHA))
         {
             $_SESSION[$this->moduleName]['errors']['captcha'] = 'Поставьте галочку, подтвердите что вы не робот!';
         }
