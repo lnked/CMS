@@ -1270,16 +1270,16 @@
         },
         {
             "name": "phpfastcache/phpfastcache",
-            "version": "7.0.5",
+            "version": "7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPSocialNetwork/phpfastcache.git",
-                "reference": "64638b27f473aa26603e84288d91a2b80a4aa388"
+                "reference": "ee5e7fc730aeef7b0e0970adc038168b4087601c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPSocialNetwork/phpfastcache/zipball/64638b27f473aa26603e84288d91a2b80a4aa388",
-                "reference": "64638b27f473aa26603e84288d91a2b80a4aa388",
+                "url": "https://api.github.com/repos/PHPSocialNetwork/phpfastcache/zipball/ee5e7fc730aeef7b0e0970adc038168b4087601c",
+                "reference": "ee5e7fc730aeef7b0e0970adc038168b4087601c",
                 "shasum": ""
             },
             "require": {
@@ -1366,7 +1366,17 @@
                 "zend memory cache",
                 "zend server"
             ],
-            "time": "2019-03-03T14:39:16+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/geolim4",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/geolim4",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-08-12T11:55:02+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
